@@ -33,7 +33,16 @@ header {
 header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 55px;
-    animation: fadeUp 1.5s ease;
+    text-align: center;
+    padding: 0 15px;
+    line-height: 1.2;
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 32px;
+    }
 }
 
 header p {
@@ -90,7 +99,7 @@ h2 {
     color: #d4af37;
 }
 
-/* RSVP BUTTON */
+/* BUTTON */
 button {
     padding: 12px 30px;
     background: #d4af37;
@@ -105,14 +114,14 @@ button:hover {
     transform: scale(1.08);
 }
 
-/* FLOATING HEARTS */
+/* HEARTS */
 .heart {
     position: fixed;
     bottom: -10px;
     animation: floatUp 5s linear infinite;
 }
 
-/* DIYA GLOW EFFECT */
+/* DIYA */
 .diya {
     font-size: 30px;
     animation: glow 1.5s infinite alternate;
@@ -155,12 +164,6 @@ button:hover {
     </div>
 </section>
 
-<!-- STORY -->
-<section class="card">
-    <h2>Our Story ❤️</h2>
-    <p>Two families, two hearts, one beautiful journey...</p>
-</section>
-
 <!-- EVENTS -->
 <section class="card">
     <h2>Wedding Day Events 🎉</h2>
@@ -182,7 +185,23 @@ button:hover {
 <!-- VENUE -->
 <section class="card">
     <h2>Venue 📍</h2>
-    <p>Hotel Amrai69</p>
+    <p>Hotel Amrai 69</p>
+    <p>Hotel Amrai 69, Saswad - Bopdev - Pune Rd, near bapdev ghat at post, Kondhwa, Bhivri, Maharashtra 412301</p>
+
+    <!-- MAP EMBED -->
+  <iframe 
+    src="https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8"
+    width="100%" 
+    height="250" 
+    style="border-radius:15px; border:0;">
+</iframe>
+
+    <br><br>
+
+    <!-- MAP BUTTON -->
+   <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
+    View on Google Maps
+</button>
 </section>
 
 <!-- RSVP -->
