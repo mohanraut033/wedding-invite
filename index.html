@@ -1,176 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mohan Weds [Bride Name]</title>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
-
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #fffaf7;
-    color: #333;
-}
-
-/* HERO SECTION */
-header {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1529636798458-92182e662485');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    animation: fadeIn 2s ease-in;
-}
-
-header p {
-    font-size: 20px;
-    animation: fadeIn 3s ease-in;
-}
-
-/* SECTIONS */
-section {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.card {
-    background: white;
-    margin: 20px auto;
-    padding: 25px;
-    max-width: 650px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transform: translateY(30px);
-    opacity: 0;
-    transition: 0.6s ease;
-}
-
-.card.show {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-h2 {
-    font-family: 'Playfair Display', serif;
-}
-
-/* COUNTDOWN */
-#timer {
-    font-size: 30px;
-    font-weight: bold;
-    color: #d4af37;
-}
-
-/* BUTTON */
-button {
-    padding: 12px 25px;
-    background: #d4af37;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #b8962e;
-    transform: scale(1.05);
-}
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-</style>
+<title>Mohan Weds Samiksha</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="story.html">Our Story</a>
+    <a href="events.html">Events</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="rsvp.html">RSVP</a>
+</nav>
+
 <header>
     <h1>💍 Mohan Weds Samiksha</h1>
-    <p>We invite you to celebrate our special day</p>
+    <p>7 May 2026 | 6:59 PM</p>
 </header>
 
-<!-- COUNTDOWN -->
-<section class="card">
-    <h2>Countdown to Our Wedding ⏳</h2>
-    <h1 id="timer"></h1>
+<section>
+    <h2>Countdown ⏳</h2>
+    <div id="timer"></div>
 </section>
 
-<!-- EVENTS -->
-<section class="card">
-    <h2>Wedding Day Events 🎉</h2>
-    <p>💍 Engagement – Time to be announced</p>
-    <p>🌼 Haldi – Time to be announced</p>
-    <p>🍽️ Lunch – 2:00 PM to 5:30 PM</p>
-    <p>🔥 Wedding – 6:59 PM</p>
-    <p>📅 Date: 7 May 2026</p>
-</section>
-
-<!-- VENUE -->
-<section class="card">
-    <h2>Venue 📍</h2>
-    <p>Hotel Amrai69 </p>
-</section>
-
-<!-- RSVP -->
-<section class="card">
-    <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/9767933883'">
-        Confirm on WhatsApp
-    </button>
-</section>
-
-<script>
-/* COUNTDOWN TIMER */
-const weddingDate = new Date("May 7, 2026 18:59:00").getTime();
-
-setInterval(function() {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("timer").innerHTML =
-        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-    if (distance < 0) {
-        document.getElementById("timer").innerHTML = "🎉 We are Married!";
-    }
-}, 1000);
-
-/* SCROLL ANIMATION */
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            card.classList.add('show');
-        }
-    });
-});
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
