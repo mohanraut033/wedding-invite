@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+}
+
+nav {
+    background: black;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+header {
+    height: 80vh;
+    background: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#timer {
+    font-size: 30px;
+    color: red;
+}
