@@ -22,7 +22,7 @@ body.loaded {
     opacity: 1;
 }
 
-/* INTRO */
+/* INTRO SCREEN */
 #intro {
     position: fixed;
     width: 100%;
@@ -34,43 +34,57 @@ body.loaded {
     z-index: 9999;
 }
 
+/* CARD CONTAINER */
 .card-container {
-    perspective: 1000px;
+    perspective: 1500px;
     cursor: pointer;
 }
 
+/* CARD */
 .invite-card {
-    width: 280px;
-    height: 180px;
+    width: 300px;
+    height: 200px;
+    position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 1.2s ease-in-out;
 }
 
 .invite-card.open {
     transform: rotateY(180deg);
 }
 
+/* SIDES */
 .front, .inside {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    backface-visibility: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+/* FRONT */
 .front {
-    background: #d4af37;
-    color: white;
+    background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+                url('background.png');
+    background-size: cover;
+    background-position: center;
+    color: #5a3e36;
 }
 
+/* INSIDE */
 .inside {
-    background: white;
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+                url('background.png');
+    background-size: cover;
+    background-position: center;
     transform: rotateY(180deg);
+    color: #5a3e36;
 }
 
 /* HERO */
@@ -106,7 +120,7 @@ header {
     .names .line2 { font-size: 20px; }
 }
 
-/* CARD */
+/* CARD SECTIONS */
 .card {
     background: white;
     margin: 30px auto;
@@ -214,27 +228,33 @@ button:hover {
 
 <body>
 
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<!-- INTRO -->
 <div id="intro">
     <div class="card-container" onclick="openInvite()">
         <div class="invite-card">
+
             <div class="front">
                 <h2>💌 Wedding Invitation</h2>
                 <p>Tap to Open</p>
             </div>
+
             <div class="inside">
                 <h2>Mohan ❤️ Samiksha</h2>
                 <p>7 May 2026</p>
             </div>
+
         </div>
     </div>
 </div>
 
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
+<!-- HERO -->
 <header>
     <div class="names">
         <div class="line1">Mohan</div>
@@ -244,11 +264,13 @@ button:hover {
     <p>With blessings of our families ❤️</p>
 </header>
 
+<!-- SAVE DATE -->
 <section class="card">
     <h2>Save the Date 💍</h2>
     <p><strong>7 May 2026</strong></p>
 </section>
 
+<!-- COUNTDOWN -->
 <section class="card">
     <h2>Countdown to Muhurat ⏳</h2>
     <div class="countdown">
@@ -259,6 +281,7 @@ button:hover {
     </div>
 </section>
 
+<!-- STORY -->
 <section class="card">
     <h2>Our Story ❤️</h2>
     <p>
@@ -268,6 +291,7 @@ button:hover {
     <p>“शुभ मंगल सावधान”</p>
 </section>
 
+<!-- EVENTS -->
 <section class="card">
     <h2>Wedding Events 🎉</h2>
 
@@ -296,6 +320,7 @@ button:hover {
     </div>
 </section>
 
+<!-- VENUE -->
 <section class="card">
     <h2>Venue 📍</h2>
     <p>Hotel Amrai 69</p>
@@ -313,24 +338,25 @@ button:hover {
     </button>
 </section>
 
+<!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/9767933883?text=Hi%20Mohan,%20I%20will%20be%20attending%20your%20wedding%20😊'">
+    <button onclick="window.location.href='https://wa.me/8999001228?text=Hi%20Mohan,%20I%20will%20be%20attending%20your%20wedding%20😊'">
         Confirm Attendance
     </button>
 </section>
 
 <script>
 function openInvite() {
-    document.querySelector(".invite-card").classList.add("open");
+    const card = document.querySelector(".invite-card");
+    card.classList.add("open");
 
-    const music = document.getElementById("bgMusic");
-    music.play();
+    document.getElementById("bgMusic").play();
 
     setTimeout(() => {
         document.getElementById("intro").style.display = "none";
         document.body.classList.add("loaded");
-    }, 1200);
+    }, 1400);
 }
 
 function toggleMusic() {
