@@ -36,6 +36,7 @@ body {
 .flip-inner {
     width: 300px;
     height: 200px;
+    position: relative;
     transform-style: preserve-3d;
     transition: 1s;
     cursor: pointer;
@@ -47,23 +48,26 @@ body {
 
 .flip-front, .flip-back {
     position: absolute;
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     border-radius: 20px;
     backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .flip-front {
     background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)), url('background.png');
+    background-size: cover;
 }
 
 .flip-back {
     transform: rotateY(180deg);
     background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)), url('background.png');
+    background-size: cover;
 }
 
 /* HERO */
@@ -91,7 +95,7 @@ header {
     border-radius: 15px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
     background: white;
     margin: 40px auto;
@@ -103,7 +107,7 @@ header {
 
     opacity: 0;
     transform: translateY(30px);
-    transition: 0.6s ease;
+    transition: 0.6s;
 }
 
 .card.show {
@@ -173,13 +177,16 @@ button {
     <source src="music.mp3">
 </audio>
 
+<!-- INTRO -->
 <div id="intro">
     <div class="flip-inner" id="flipCard" onclick="openCard()">
         <div class="flip-front">
             <h2>💌 Wedding Invitation</h2>
+            <p>Tap to Open</p>
         </div>
         <div class="flip-back">
             <h2>Mohan ❤️ Samiksha</h2>
+            <p>7 May 2026</p>
         </div>
     </div>
 </div>
@@ -216,52 +223,68 @@ button {
     </div>
 </section>
 
+<!-- EVENTS WITH IMAGES -->
 <section class="card">
     <h2>Wedding Events 🎉</h2>
 
     <div class="event">
         <h3>💍 Engagement</h3>
+        <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
         <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🌼 Haldi</h3>
+        <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
         <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🍽️ Lunch</h3>
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
         <p><strong>2:00 PM – 5:30 PM</strong></p>
     </div>
 
     <div class="event">
         <h3>🔥 Wedding</h3>
+        <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
         <p><strong>7 May 2026 | 6:59 PM</strong></p>
     </div>
 </section>
 
+<!-- VENUE WITH MAP -->
 <section class="card">
     <h2>Venue 📍</h2>
     <p><strong>Hotel Amrai 69</strong></p>
 
+    <iframe 
+        src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
+        width="100%" height="250"
+        style="border-radius:15px;border:0;">
+    </iframe>
+
     <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
-        View Location
+        View on Maps
     </button>
 </section>
 
+<!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/91XXXXXXXXXX?text=I will attend'">
+    <button onclick="window.location.href='https://wa.me/9767933883?text=Hi Mohan, I will attend'">
         Confirm on WhatsApp
     </button>
 </section>
 
 <script>
-// card
 function openCard() {
     document.getElementById("flipCard").classList.add("flip");
     document.getElementById("bgMusic").play();
-    setTimeout(()=>document.getElementById("intro").style.display="none",1000);
+
+    setTimeout(()=>{
+        document.getElementById("intro").style.display="none";
+        startTyping();
+    },1000);
 }
 
 // typing
@@ -280,13 +303,13 @@ function startTyping(){
     }
     type();
 }
-setTimeout(startTyping,2000);
 
 // countdown
 const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
     let now=new Date().getTime();
     let d=weddingDate-now;
+
     document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24));
     document.getElementById("hours").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
     document.getElementById("minutes").innerText=Math.floor((d%(1000*60*60))/(1000*60));
