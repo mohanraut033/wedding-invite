@@ -21,7 +21,15 @@ body {
     background: var(--pink-bg);
 }
 
-/* BUTTON FEEDBACK */
+/* FLORAL BACKGROUND FOR SECTIONS */
+header,
+.card {
+    background: linear-gradient(rgba(253,236,239,0.75), rgba(253,236,239,0.75)),
+                url('background.png');
+    background-size: cover;
+}
+
+/* BUTTON */
 button {
     transition: 0.2s;
 }
@@ -83,8 +91,6 @@ button:active {
 header {
     padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(rgba(253,236,239,0.6), rgba(253,236,239,0.6)), url('background.png');
-    background-size: cover;
     animation: zoomBg 20s infinite alternate;
 }
 
@@ -97,7 +103,6 @@ header {
     font-family: 'Playfair Display';
     font-size: 42px;
     color: var(--gold-dark);
-    text-shadow: 0 0 10px rgba(212,175,55,0.4);
 }
 
 .heart-text {
@@ -109,13 +114,17 @@ header {
 .story-hero {
     margin-top: 25px;
     padding: 20px;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.6);
     border-radius: 15px;
+}
+
+.story-hero p {
+    white-space: normal !important;
+    overflow: visible !important;
 }
 
 /* CARD */
 .card {
-    background: white;
     margin: 40px auto;
     padding: 30px;
     max-width: 800px;
@@ -290,6 +299,7 @@ footer {
 <section class="card">
     <h2>Venue 📍</h2>
     <p><strong>Hotel Amrai 69</strong></p>
+    <p>Saswad - Bopdev - Pune Rd, Kondhwa, Bhivri, Maharashtra 412301</p>
 
     <iframe 
         src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
@@ -351,7 +361,7 @@ function toggleMusic(){
 }
 
 // typing
-const text="Sometimes, the most beautiful journeys begin with a simple introduction...";
+const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 let i=0;
 function startTyping(){
     let el=document.getElementById("typingText");
