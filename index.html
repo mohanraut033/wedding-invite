@@ -159,14 +159,15 @@ button {
     border-radius: 25px;
 }
 
-/* MUSIC */
+/* MUSIC BUTTON */
 .music-btn {
     position: fixed;
     top: 20px;
     right: 20px;
     background: var(--gold);
     border-radius: 50%;
-    padding: 10px;
+    padding: 12px;
+    font-size: 18px;
 }
 </style>
 </head>
@@ -191,7 +192,8 @@ button {
     </div>
 </div>
 
-<button class="music-btn" onclick="toggleMusic()">🎵</button>
+<!-- MUSIC BUTTON -->
+<button class="music-btn" onclick="toggleMusic()" id="musicBtn">🔊</button>
 
 <header>
     <div class="names">
@@ -223,7 +225,6 @@ button {
     </div>
 </section>
 
-<!-- EVENTS WITH IMAGES -->
 <section class="card">
     <h2>Wedding Events 🎉</h2>
 
@@ -252,7 +253,6 @@ button {
     </div>
 </section>
 
-<!-- VENUE WITH MAP -->
 <section class="card">
     <h2>Venue 📍</h2>
     <p><strong>Hotel Amrai 69</strong></p>
@@ -268,7 +268,6 @@ button {
     </button>
 </section>
 
-<!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
     <button onclick="window.location.href='https://wa.me/9767933883?text=Hi Mohan, I will attend'">
@@ -277,9 +276,12 @@ button {
 </section>
 
 <script>
+// CARD
 function openCard() {
     document.getElementById("flipCard").classList.add("flip");
-    document.getElementById("bgMusic").play();
+
+    const music = document.getElementById("bgMusic");
+    music.play();
 
     setTimeout(()=>{
         document.getElementById("intro").style.display="none";
@@ -287,7 +289,21 @@ function openCard() {
     },1000);
 }
 
-// typing
+// MUSIC TOGGLE
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "🔊";
+    } else {
+        music.pause();
+        btn.innerHTML = "🔇";
+    }
+}
+
+// TYPING
 const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 let i=0;
 function startTyping(){
@@ -304,7 +320,7 @@ function startTyping(){
     type();
 }
 
-// countdown
+// COUNTDOWN
 const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
     let now=new Date().getTime();
@@ -316,7 +332,7 @@ setInterval(()=>{
     document.getElementById("seconds").innerText=Math.floor((d%(1000*60))/1000);
 },1000);
 
-// scroll animation
+// SCROLL ANIMATION
 const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
         if(entry.isIntersecting){
