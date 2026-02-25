@@ -21,7 +21,16 @@ body {
     background: var(--pink-bg);
 }
 
-/* INTRO CARD */
+/* BUTTON FEEDBACK */
+button {
+    transition: 0.2s;
+}
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
+
+/* INTRO */
 #intro {
     position: fixed;
     width: 100%;
@@ -158,6 +167,11 @@ h2 {
     background: #fff7f0;
     border-radius: 10px;
 }
+.box span {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--gold-dark);
+}
 
 /* BUTTON */
 button {
@@ -178,6 +192,13 @@ button {
     border-radius: 50%;
     padding: 12px;
     font-size: 18px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
 }
 </style>
 </head>
@@ -211,7 +232,7 @@ button {
         <h1>Samiksha</h1>
         <p>With blessings of our families ❤️</p>
 
-        <p style="margin-top:10px;font-style:italic;">
+        <p style="font-style:italic;">
         We would be honored to celebrate this special day with you
         </p>
 
@@ -288,11 +309,28 @@ button {
     </button>
 </section>
 
+<footer>
+    Made with ❤️ by Mohan & Samiksha
+</footer>
+
 <script>
+// audio fade
+function fadeInAudio(audio){
+    audio.volume=0;
+    audio.play();
+    let v=0;
+    let fade=setInterval(()=>{
+        if(v<1){
+            v+=0.05;
+            audio.volume=v;
+        } else clearInterval(fade);
+    },200);
+}
+
 // card
-function openCard() {
+function openCard(){
     document.getElementById("flipCard").classList.add("flip");
-    document.getElementById("bgMusic").play();
+    fadeInAudio(document.getElementById("bgMusic"));
 
     setTimeout(()=>{
         document.getElementById("intro").style.display="none";
@@ -300,22 +338,20 @@ function openCard() {
     },1000);
 }
 
-// music
-function toggleMusic() {
+// music toggle
+function toggleMusic(){
     const m=document.getElementById("bgMusic");
     const btn=document.getElementById("musicBtn");
 
     if(m.paused){
-        m.play();
-        btn.innerHTML="🔊";
-    }else{
-        m.pause();
-        btn.innerHTML="🔇";
+        m.play(); btn.innerHTML="🔊";
+    } else {
+        m.pause(); btn.innerHTML="🔇";
     }
 }
 
 // typing
-const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
+const text="Sometimes, the most beautiful journeys begin with a simple introduction...";
 let i=0;
 function startTyping(){
     let el=document.getElementById("typingText");
@@ -323,7 +359,7 @@ function startTyping(){
         if(i<text.length){
             el.innerHTML+=text.charAt(i++);
             setTimeout(type,25);
-        }else{
+        } else {
             document.getElementById("marathiText").style.opacity=1;
         }
     }
