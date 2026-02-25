@@ -13,7 +13,6 @@
     --pink-bg: #fdecef;
     --gold: #d4af37;
     --gold-dark: #b8962e;
-    --text-dark: #5a3e36;
 }
 
 body {
@@ -34,17 +33,12 @@ body {
     z-index: 9999;
 }
 
-.flip-container {
-    perspective: 1200px;
-    cursor: pointer;
-}
-
 .flip-inner {
     width: 300px;
     height: 200px;
-    position: relative;
     transform-style: preserve-3d;
-    transition: transform 1s ease;
+    transition: 1s;
+    cursor: pointer;
 }
 
 .flip-inner.flip {
@@ -53,78 +47,68 @@ body {
 
 .flip-front, .flip-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 300px;
+    height: 200px;
     border-radius: 20px;
     backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: var(--text-dark);
-    box-shadow: 0 25px 50px rgba(212,175,55,0.3);
 }
 
 .flip-front {
-    background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)),
-                url('background.png');
-    background-size: cover;
+    background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)), url('background.png');
 }
 
 .flip-back {
     transform: rotateY(180deg);
-    background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)),
-                url('background.png');
-    background-size: cover;
-}
-
-/* MUSIC */
-.music-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    padding: 10px 14px;
-    z-index: 999;
+    background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)), url('background.png');
 }
 
 /* HERO */
 header {
-    height: 100vh;
-    background: linear-gradient(rgba(253,236,239,0.6), rgba(253,236,239,0.6)),
-                url('background.png');
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* moved up */
-    padding-top: 120px; /* control spacing */
-}
-
-.names {
+    padding: 80px 20px;
     text-align: center;
+    background: linear-gradient(rgba(253,236,239,0.6), rgba(253,236,239,0.6)), url('background.png');
 }
 
 .names h1 {
     font-family: 'Playfair Display';
     color: var(--gold-dark);
-    margin: 5px 0;
 }
 
 .heart-text {
-    font-size: 26px;
+    font-size: 28px;
     color: var(--gold);
 }
 
-/* SECTIONS */
+/* STORY */
+.story-hero {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 15px;
+}
+
+/* CARDS */
 .card {
     background: white;
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 30px;
     max-width: 800px;
     border-radius: 20px;
     border-top: 4px solid var(--gold);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
@@ -135,18 +119,12 @@ h2 {
 /* EVENTS */
 .event {
     margin-top: 25px;
-    transition: 0.3s;
-}
-
-.event:hover {
-    transform: scale(1.02);
 }
 
 .event img {
     width: 100%;
     border-radius: 15px;
     margin-top: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .event p strong {
@@ -157,47 +135,34 @@ h2 {
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .box {
-    padding: 15px;
+    padding: 12px;
     background: #fff7f0;
     border-radius: 10px;
-    border: 1px solid #f3d9b1;
-    min-width: 70px;
-    text-align: center;
-}
-
-.box span {
-    font-size: 20px;
-    font-weight: bold;
 }
 
 /* BUTTON */
 button {
-    padding: 12px 30px;
+    margin-top: 20px;
+    padding: 12px 25px;
     background: var(--gold);
     color: white;
     border: none;
-    border-radius: 30px;
-    cursor: pointer;
+    border-radius: 25px;
 }
 
-button:hover {
-    background: var(--gold-dark);
-}
-
-/* HEART FLOAT */
-.heart {
+/* MUSIC */
+.music-btn {
     position: fixed;
-    bottom: -10px;
-    animation: floatUp 5s linear infinite;
-}
-
-@keyframes floatUp {
-    100% {transform: translateY(-100vh); opacity: 0;}
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    padding: 10px;
 }
 </style>
 </head>
@@ -208,41 +173,39 @@ button:hover {
     <source src="music.mp3">
 </audio>
 
-<!-- INTRO -->
 <div id="intro">
-    <div class="flip-container" onclick="openCard()">
-        <div class="flip-inner" id="flipCard">
-            <div class="flip-front">
-                <h2>💌 Wedding Invitation</h2>
-                <p>Tap to Open</p>
-            </div>
-            <div class="flip-back">
-                <h2>Mohan ❤️ Samiksha</h2>
-                <p>7 May 2026</p>
-            </div>
+    <div class="flip-inner" id="flipCard" onclick="openCard()">
+        <div class="flip-front">
+            <h2>💌 Wedding Invitation</h2>
+        </div>
+        <div class="flip-back">
+            <h2>Mohan ❤️ Samiksha</h2>
         </div>
     </div>
 </div>
 
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- HERO -->
 <header>
     <div class="names">
         <h1>Mohan</h1>
         <div class="heart-text">❤️</div>
         <h1>Samiksha</h1>
         <p>With blessings of our families ❤️</p>
+
+        <div class="story-hero">
+            <h2>Our Story ❤️</h2>
+            <p id="typingText"></p>
+            <p id="marathiText" style="opacity:0;">“शुभ मंगल सावधान”</p>
+        </div>
     </div>
 </header>
 
-<!-- SAVE DATE -->
 <section class="card">
     <h2>Save the Date 💍</h2>
     <p><strong>7 May 2026</strong></p>
 </section>
 
-<!-- COUNTDOWN -->
 <section class="card">
     <h2>Countdown ⏳</h2>
     <div class="countdown">
@@ -253,97 +216,92 @@ button:hover {
     </div>
 </section>
 
-<!-- EVENTS -->
 <section class="card">
     <h2>Wedding Events 🎉</h2>
 
     <div class="event">
         <h3>💍 Engagement</h3>
-        <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
         <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🌼 Haldi</h3>
-        <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
         <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🍽️ Lunch</h3>
-        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
-        <p><strong>2:00 PM to 5:30 PM</strong></p>
+        <p><strong>2:00 PM – 5:30 PM</strong></p>
     </div>
 
     <div class="event">
         <h3>🔥 Wedding</h3>
-        <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
         <p><strong>7 May 2026 | 6:59 PM</strong></p>
     </div>
 </section>
 
-<!-- VENUE -->
 <section class="card">
     <h2>Venue 📍</h2>
-    <p>Hotel Amrai 69</p>
-
-    <iframe 
-        src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
-        width="100%" height="250"
-        style="border-radius:15px;border:0;">
-    </iframe>
-
-    <br><br>
+    <p><strong>Hotel Amrai 69</strong></p>
 
     <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
-        View on Maps
+        View Location
     </button>
 </section>
 
-<!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/9767933883?text=Hi%20Mohan,%20I%20will%20attend%20😊'">
-        Confirm Attendance
+    <button onclick="window.location.href='https://wa.me/91XXXXXXXXXX?text=I will attend'">
+        Confirm on WhatsApp
     </button>
 </section>
 
 <script>
+// card
 function openCard() {
     document.getElementById("flipCard").classList.add("flip");
     document.getElementById("bgMusic").play();
-
-    setTimeout(() => {
-        document.getElementById("intro").style.display = "none";
-    }, 1000);
+    setTimeout(()=>document.getElementById("intro").style.display="none",1000);
 }
 
-function toggleMusic() {
-    const m = document.getElementById("bgMusic");
-    m.paused ? m.play() : m.pause();
+// typing
+const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
+let i=0;
+function startTyping(){
+    let el=document.getElementById("typingText");
+    function type(){
+        if(i<text.length){
+            el.innerHTML+=text.charAt(i);
+            i++;
+            setTimeout(type,25);
+        }else{
+            document.getElementById("marathiText").style.opacity=1;
+        }
+    }
+    type();
 }
+setTimeout(startTyping,2000);
 
 // countdown
-const weddingDate = new Date("May 7, 2026 18:59:00").getTime();
-setInterval(() => {
-    const now = new Date().getTime();
-    const d = weddingDate - now;
-
-    document.getElementById("days").innerText = Math.floor(d/(1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
-}, 1000);
-
-// hearts
+const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
-    const h=document.createElement("div");
-    h.className="heart";
-    h.innerHTML="💖";
-    h.style.left=Math.random()*100+"vw";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),5000);
-},300);
+    let now=new Date().getTime();
+    let d=weddingDate-now;
+    document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24));
+    document.getElementById("hours").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText=Math.floor((d%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText=Math.floor((d%(1000*60))/1000);
+},1000);
+
+// scroll animation
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+document.querySelectorAll('.card').forEach(el=>observer.observe(el));
 </script>
 
 </body>
