@@ -6,7 +6,7 @@
 
 <title>Mohan Weds Samiksha</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -21,69 +21,30 @@ body {
     background: var(--pink-bg);
 }
 
-/* INTRO */
-#intro {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: var(--pink-bg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.flip-inner {
-    width: 300px;
-    height: 200px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: 1s;
-    cursor: pointer;
-}
-
-.flip-inner.flip {
-    transform: rotateY(180deg);
-}
-
-.flip-front, .flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.flip-front {
-    background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)), url('background.png');
-    background-size: cover;
-}
-
-.flip-back {
-    transform: rotateY(180deg);
-    background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)), url('background.png');
-    background-size: cover;
-}
-
-/* HERO */
+/* HERO ANIMATION */
 header {
     padding: 80px 20px;
     text-align: center;
     background: linear-gradient(rgba(253,236,239,0.6), rgba(253,236,239,0.6)), url('background.png');
+    background-size: cover;
+    animation: zoomBg 20s infinite alternate;
 }
 
+@keyframes zoomBg {
+    from {background-size: 100%;}
+    to {background-size: 110%;}
+}
+
+/* NAME GLOW */
 .names h1 {
     font-family: 'Playfair Display';
+    font-size: 42px;
     color: var(--gold-dark);
+    text-shadow: 0 0 10px rgba(212,175,55,0.4);
 }
 
 .heart-text {
-    font-size: 28px;
+    font-size: 30px;
     color: var(--gold);
 }
 
@@ -95,11 +56,11 @@ header {
     border-radius: 15px;
 }
 
-/* CARD */
+/* CARDS */
 .card {
     background: white;
-    margin: 40px auto;
-    padding: 30px;
+    margin: 50px auto;
+    padding: 35px;
     max-width: 800px;
     border-radius: 20px;
     border-top: 4px solid var(--gold);
@@ -117,12 +78,14 @@ header {
 
 h2 {
     font-family: 'Playfair Display';
+    font-size: 28px;
     color: var(--gold-dark);
+    margin-bottom: 15px;
 }
 
 /* EVENTS */
 .event {
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .event img {
@@ -131,69 +94,36 @@ h2 {
     margin-top: 10px;
 }
 
-.event p strong {
-    color: var(--gold);
-}
-
-/* COUNTDOWN */
-.countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.box {
-    padding: 12px;
-    background: #fff7f0;
+/* RSVP FORM */
+input {
+    padding: 10px;
+    width: 80%;
     border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
 }
 
 /* BUTTON */
 button {
-    margin-top: 20px;
+    margin: 15px 5px;
     padding: 12px 25px;
     background: var(--gold);
     color: white;
     border: none;
     border-radius: 25px;
+    cursor: pointer;
 }
 
-/* MUSIC BUTTON */
-.music-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--gold);
-    border-radius: 50%;
-    padding: 12px;
-    font-size: 18px;
+/* MOBILE */
+@media (max-width:600px) {
+    .names h1 {font-size: 32px;}
+    h2 {font-size: 24px;}
+    .card {margin: 30px 15px;}
 }
 </style>
 </head>
 
 <body>
-
-<audio id="bgMusic" loop>
-    <source src="music.mp3">
-</audio>
-
-<!-- INTRO -->
-<div id="intro">
-    <div class="flip-inner" id="flipCard" onclick="openCard()">
-        <div class="flip-front">
-            <h2>💌 Wedding Invitation</h2>
-            <p>Tap to Open</p>
-        </div>
-        <div class="flip-back">
-            <h2>Mohan ❤️ Samiksha</h2>
-            <p>7 May 2026</p>
-        </div>
-    </div>
-</div>
-
-<!-- MUSIC BUTTON -->
-<button class="music-btn" onclick="toggleMusic()" id="musicBtn">🔊</button>
 
 <header>
     <div class="names">
@@ -201,6 +131,10 @@ button {
         <div class="heart-text">❤️</div>
         <h1>Samiksha</h1>
         <p>With blessings of our families ❤️</p>
+
+        <p style="margin-top:10px;font-style:italic;">
+        We would be honored to celebrate this special day with you
+        </p>
 
         <div class="story-hero">
             <h2>Our Story ❤️</h2>
@@ -217,12 +151,7 @@ button {
 
 <section class="card">
     <h2>Countdown ⏳</h2>
-    <div class="countdown">
-        <div class="box"><span id="days"></span><p>Days</p></div>
-        <div class="box"><span id="hours"></span><p>Hours</p></div>
-        <div class="box"><span id="minutes"></span><p>Min</p></div>
-        <div class="box"><span id="seconds"></span><p>Sec</p></div>
-    </div>
+    <div id="countdown"></div>
 </section>
 
 <section class="card">
@@ -231,113 +160,78 @@ button {
     <div class="event">
         <h3>💍 Engagement</h3>
         <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
-        <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🌼 Haldi</h3>
         <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
-        <p><strong>Time: To be announced</strong></p>
     </div>
 
     <div class="event">
         <h3>🍽️ Lunch</h3>
         <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
-        <p><strong>2:00 PM – 5:30 PM</strong></p>
     </div>
 
     <div class="event">
         <h3>🔥 Wedding</h3>
         <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
-        <p><strong>7 May 2026 | 6:59 PM</strong></p>
     </div>
 </section>
 
 <section class="card">
     <h2>Venue 📍</h2>
-    <p><strong>Hotel Amrai 69</strong></p>
-
     <iframe 
         src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
         width="100%" height="250"
         style="border-radius:15px;border:0;">
     </iframe>
-
-    <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
-        View on Maps
-    </button>
 </section>
 
 <section class="card">
     <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/9767933883?text=Hi Mohan, I will attend'">
-        Confirm on WhatsApp
-    </button>
+
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <div>
+        <button onclick="sendRSVP('Yes')">Will Attend</button>
+        <button onclick="sendRSVP('No')">Not Attend</button>
+    </div>
 </section>
 
 <script>
-// CARD
-function openCard() {
-    document.getElementById("flipCard").classList.add("flip");
-
-    const music = document.getElementById("bgMusic");
-    music.play();
-
-    setTimeout(()=>{
-        document.getElementById("intro").style.display="none";
-        startTyping();
-    },1000);
-}
-
-// MUSIC TOGGLE
-function toggleMusic() {
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
-
-    if (music.paused) {
-        music.play();
-        btn.innerHTML = "🔊";
-    } else {
-        music.pause();
-        btn.innerHTML = "🔇";
-    }
-}
-
-// TYPING
+// typing
 const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 let i=0;
-function startTyping(){
-    let el=document.getElementById("typingText");
-    function type(){
-        if(i<text.length){
-            el.innerHTML+=text.charAt(i);
-            i++;
-            setTimeout(type,25);
-        }else{
-            document.getElementById("marathiText").style.opacity=1;
-        }
+(function type(){
+    if(i<text.length){
+        document.getElementById("typingText").innerHTML+=text[i++];
+        setTimeout(type,25);
+    } else {
+        document.getElementById("marathiText").style.opacity=1;
     }
-    type();
-}
+})();
 
-// COUNTDOWN
-const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
+// countdown
+const target=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
     let now=new Date().getTime();
-    let d=weddingDate-now;
-
-    document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24));
-    document.getElementById("hours").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText=Math.floor((d%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText=Math.floor((d%(1000*60))/1000);
+    let d=target-now;
+    document.getElementById("countdown").innerHTML=
+    Math.floor(d/(1000*60*60*24))+" Days "+
+    Math.floor((d%(1000*60*60*24))/(1000*60*60))+" H "+
+    Math.floor((d%(1000*60*60))/(1000*60))+" M";
 },1000);
 
-// SCROLL ANIMATION
+// RSVP
+function sendRSVP(status){
+    const name=document.getElementById("name").value || "Guest";
+    window.location.href=`https://wa.me/9767933883?text=${name} will ${status}`;
+}
+
+// scroll animation
 const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
+    entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("show");
     });
 });
 document.querySelectorAll('.card').forEach(el=>observer.observe(el));
