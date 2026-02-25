@@ -14,9 +14,15 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #fffaf7;
     overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-/* INTRO SCREEN */
+body.loaded {
+    opacity: 1;
+}
+
+/* INTRO */
 #intro {
     position: fixed;
     width: 100%;
@@ -36,7 +42,6 @@ body {
 .invite-card {
     width: 280px;
     height: 180px;
-    position: relative;
     transform-style: preserve-3d;
     transition: transform 1s;
 }
@@ -49,13 +54,13 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .front {
@@ -75,7 +80,6 @@ header {
                 url('background.png');
     background-size: cover;
     background-position: center;
-    color: #5a3e36;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +89,11 @@ header {
 .names {
     font-family: 'Playfair Display', serif;
     text-align: center;
+    background: rgba(255,255,255,0.5);
+    padding: 20px 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    animation: fadeUp 1.5s ease;
 }
 
 .names .line1 { font-size: 40px; }
@@ -104,6 +113,7 @@ header {
     padding: 30px;
     max-width: 800px;
     border-radius: 20px;
+    border-top: 3px solid #f3d9b1;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     opacity: 0;
     transform: translateY(40px);
@@ -143,12 +153,18 @@ h2 {
 /* EVENTS */
 .event {
     margin-top: 25px;
+    transition: 0.3s;
+}
+
+.event:hover {
+    transform: scale(1.02);
 }
 
 .event img {
     width: 100%;
     border-radius: 15px;
     margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .event p strong {
@@ -163,6 +179,11 @@ button {
     border: none;
     border-radius: 30px;
     cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #b8962e;
 }
 
 /* MUSIC BUTTON */
@@ -183,17 +204,20 @@ button {
 @keyframes floatUp {
     100% {transform: translateY(-100vh); opacity: 0;}
 }
+
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- INTRO CARD -->
 <div id="intro">
     <div class="card-container" onclick="openInvite()">
         <div class="invite-card">
@@ -209,10 +233,8 @@ button {
     </div>
 </div>
 
-<!-- MUSIC BUTTON -->
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
-<!-- HERO -->
 <header>
     <div class="names">
         <div class="line1">Mohan</div>
@@ -222,7 +244,11 @@ button {
     <p>With blessings of our families ❤️</p>
 </header>
 
-<!-- COUNTDOWN -->
+<section class="card">
+    <h2>Save the Date 💍</h2>
+    <p><strong>7 May 2026</strong></p>
+</section>
+
 <section class="card">
     <h2>Countdown to Muhurat ⏳</h2>
     <div class="countdown">
@@ -233,16 +259,15 @@ button {
     </div>
 </section>
 
-<!-- STORY -->
 <section class="card">
     <h2>Our Story ❤️</h2>
     <p>
     Sometimes, the most beautiful journeys begin with a simple introduction.  
     What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.
     </p>
+    <p>“शुभ मंगल सावधान”</p>
 </section>
 
-<!-- EVENTS -->
 <section class="card">
     <h2>Wedding Events 🎉</h2>
 
@@ -271,7 +296,6 @@ button {
     </div>
 </section>
 
-<!-- VENUE -->
 <section class="card">
     <h2>Venue 📍</h2>
     <p>Hotel Amrai 69</p>
@@ -289,7 +313,6 @@ button {
     </button>
 </section>
 
-<!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
     <button onclick="window.location.href='https://wa.me/9767933883?text=Hi%20Mohan,%20I%20will%20be%20attending%20your%20wedding%20😊'">
@@ -306,13 +329,21 @@ function openInvite() {
 
     setTimeout(() => {
         document.getElementById("intro").style.display = "none";
+        document.body.classList.add("loaded");
     }, 1200);
 }
 
 function toggleMusic() {
     const music = document.getElementById("bgMusic");
-    if (music.paused) music.play();
-    else music.pause();
+    const btn = document.querySelector(".music-btn");
+
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "🔊";
+    } else {
+        music.pause();
+        btn.innerHTML = "🔇";
+    }
 }
 
 // Countdown
