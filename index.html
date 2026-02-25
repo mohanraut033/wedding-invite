@@ -16,13 +16,14 @@ body {
     overflow-x: hidden;
 }
 
-/* HERO */
+/* HERO (UPDATED MAHARASHTRIAN STYLE) */
 header {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('https://images.unsplash.com/photo-1519741497674-611481863552');
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('https://images.unsplash.com/photo-1603575448360-153f093fd0c8?q=80&w=1470&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: white;
     display: flex;
     justify-content: center;
@@ -36,23 +37,13 @@ header h1 {
     text-align: center;
     padding: 0 15px;
     line-height: 1.2;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
-/* MOBILE FIX */
 @media (max-width: 600px) {
     header h1 {
         font-size: 32px;
     }
-}
-
-header p {
-    animation: fadeUp 2s ease;
-}
-
-/* SECTION */
-section {
-    padding: 60px 20px;
-    text-align: center;
 }
 
 /* CARD */
@@ -60,7 +51,7 @@ section {
     background: white;
     margin: 30px auto;
     padding: 30px;
-    max-width: 700px;
+    max-width: 800px;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     opacity: 0;
@@ -99,6 +90,22 @@ h2 {
     color: #d4af37;
 }
 
+/* EVENTS */
+.event {
+    margin-top: 25px;
+}
+
+.event img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.event p strong {
+    font-size: 16px;
+    color: #b8962e;
+}
+
 /* BUTTON */
 button {
     padding: 12px 30px;
@@ -121,25 +128,7 @@ button:hover {
     animation: floatUp 5s linear infinite;
 }
 
-/* DIYA */
-.diya {
-    font-size: 30px;
-    animation: glow 1.5s infinite alternate;
-}
-
-@keyframes glow {
-    from {opacity: 0.6;}
-    to {opacity: 1;}
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
 @keyframes floatUp {
-    0% {transform: translateY(0); opacity: 1;}
     100% {transform: translateY(-100vh); opacity: 0;}
 }
 </style>
@@ -164,51 +153,69 @@ button:hover {
     </div>
 </section>
 
-<!-- EVENTS -->
+<!-- STORY -->
 <section class="card">
-    <h2>Wedding Day Events 🎉</h2>
-    <p>💍 Engagement – To be announced</p>
-    <p>🌼 Haldi – To be announced</p>
-    <p>🍽️ Lunch – 2:00 PM to 5:30 PM</p>
-    <p>🔥 Wedding Muhurat – 6:59 PM</p>
-    <p>📅 7 May 2026</p>
+    <h2>Our Story ❤️</h2>
+    <p>
+    Sometimes, the most beautiful journeys begin with a simple introduction.  
+    What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.  
+    With the blessings of our families, we are now ready to begin this new chapter together.
+    </p>
 </section>
 
-<!-- MAHARASHTRIAN TOUCH -->
+<!-- EVENTS -->
 <section class="card">
-    <h2>🌼 Maharashtrian Traditions</h2>
-    <p class="diya">🪔 🪔 🪔</p>
-    <p>With Haldi, blessings, and sacred rituals,  
-    we begin our new journey together.</p>
+    <h2>Wedding Events 🎉</h2>
+
+    <div class="event">
+        <h3>💍 Engagement</h3>
+        <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0">
+        <p><strong>Time: To be announced</strong></p>
+    </div>
+
+    <div class="event">
+        <h3>🌼 Haldi</h3>
+        <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0">
+        <p><strong>Time: To be announced</strong></p>
+    </div>
+
+    <div class="event">
+        <h3>🍽️ Lunch</h3>
+        <p><strong>2:00 PM to 5:30 PM</strong></p>
+    </div>
+
+    <div class="event">
+        <h3>🔥 Wedding Muhurat</h3>
+        <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0">
+        <p><strong>7 May 2026 | 6:59 PM</strong></p>
+    </div>
+
 </section>
 
 <!-- VENUE -->
 <section class="card">
     <h2>Venue 📍</h2>
     <p>Hotel Amrai 69</p>
-    <p>Hotel Amrai 69, Saswad - Bopdev - Pune Rd, near bapdev ghat at post, Kondhwa, Bhivri, Maharashtra 412301</p>
 
-    <!-- MAP EMBED -->
-  <iframe 
-    src="https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8"
-    width="100%" 
-    height="250" 
-    style="border-radius:15px; border:0;">
-</iframe>
+    <iframe 
+        src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
+        width="100%" 
+        height="250"
+        style="border-radius:15px; border:0;">
+    </iframe>
 
     <br><br>
 
-    <!-- MAP BUTTON -->
-   <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
-    View on Google Maps
-</button>
+    <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
+        View on Google Maps
+    </button>
 </section>
 
 <!-- RSVP -->
 <section class="card">
     <h2>RSVP 💌</h2>
     <button onclick="window.location.href='https://wa.me/9767933883?text=Hi%20Mohan,%20I%20will%20be%20attending%20your%20wedding%20😊'">
-        Confirm on WhatsApp
+        Confirm Attendance
     </button>
 </section>
 
@@ -220,15 +227,14 @@ setInterval(() => {
     const now = new Date().getTime();
     const d = weddingDate - now;
 
-    document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((d % (1000*60*60)) / (1000*60));
-    document.getElementById("seconds").innerText = Math.floor((d % (1000*60)) / 1000);
+    document.getElementById("days").innerText = Math.floor(d/(1000*60*60*24));
+    document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
 }, 1000);
 
 // SCROLL ANIMATION
 const cards = document.querySelectorAll('.card');
-
 window.addEventListener('scroll', () => {
     cards.forEach(card => {
         if (card.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -242,11 +248,10 @@ setInterval(() => {
     const heart = document.createElement('div');
     heart.className = 'heart';
     heart.innerHTML = '💖';
-    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.left = Math.random()*100+'vw';
     document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 5000);
-}, 300);
+    setTimeout(()=>heart.remove(),5000);
+},300);
 </script>
 
 </body>
