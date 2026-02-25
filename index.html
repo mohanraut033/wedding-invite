@@ -65,14 +65,12 @@ body {
     box-shadow: 0 25px 50px rgba(212,175,55,0.3);
 }
 
-/* FRONT */
 .flip-front {
     background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)),
                 url('background.png');
     background-size: cover;
 }
 
-/* BACK */
 .flip-back {
     transform: rotateY(180deg);
     background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)),
@@ -99,21 +97,23 @@ header {
     background-size: cover;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* moved up */
+    padding-top: 120px; /* control spacing */
 }
 
 .names {
-    background: rgba(255,255,255,0.4);
-    padding: 25px 50px;
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
     text-align: center;
-    border: 1px solid rgba(212,175,55,0.4);
 }
 
 .names h1 {
     font-family: 'Playfair Display';
     color: var(--gold-dark);
+    margin: 5px 0;
+}
+
+.heart-text {
+    font-size: 26px;
+    color: var(--gold);
 }
 
 /* SECTIONS */
@@ -157,7 +157,8 @@ h2 {
 .countdown {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .box {
@@ -165,6 +166,13 @@ h2 {
     background: #fff7f0;
     border-radius: 10px;
     border: 1px solid #f3d9b1;
+    min-width: 70px;
+    text-align: center;
+}
+
+.box span {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* BUTTON */
@@ -181,7 +189,7 @@ button:hover {
     background: var(--gold-dark);
 }
 
-/* HEART */
+/* HEART FLOAT */
 .heart {
     position: fixed;
     bottom: -10px;
@@ -204,17 +212,14 @@ button:hover {
 <div id="intro">
     <div class="flip-container" onclick="openCard()">
         <div class="flip-inner" id="flipCard">
-
             <div class="flip-front">
                 <h2>💌 Wedding Invitation</h2>
                 <p>Tap to Open</p>
             </div>
-
             <div class="flip-back">
                 <h2>Mohan ❤️ Samiksha</h2>
                 <p>7 May 2026</p>
             </div>
-
         </div>
     </div>
 </div>
@@ -224,7 +229,9 @@ button:hover {
 <!-- HERO -->
 <header>
     <div class="names">
-        <h1>Mohan ❤️ Samiksha</h1>
+        <h1>Mohan</h1>
+        <div class="heart-text">❤️</div>
+        <h1>Samiksha</h1>
         <p>With blessings of our families ❤️</p>
     </div>
 </header>
@@ -241,6 +248,8 @@ button:hover {
     <div class="countdown">
         <div class="box"><span id="days"></span><p>Days</p></div>
         <div class="box"><span id="hours"></span><p>Hours</p></div>
+        <div class="box"><span id="minutes"></span><p>Min</p></div>
+        <div class="box"><span id="seconds"></span><p>Sec</p></div>
     </div>
 </section>
 
@@ -319,8 +328,11 @@ const weddingDate = new Date("May 7, 2026 18:59:00").getTime();
 setInterval(() => {
     const now = new Date().getTime();
     const d = weddingDate - now;
+
     document.getElementById("days").innerText = Math.floor(d/(1000*60*60*24));
     document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
 }, 1000);
 
 // hearts
