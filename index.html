@@ -6,6 +6,20 @@
 
 <title>Mohan Weds Samiksha</title>
 
+<!-- ✅ FAVICON -->
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- ✅ SOCIAL PREVIEW -->
+<meta property="og:title" content="Mohan ❤️ Samiksha Wedding Invitation">
+<meta property="og:description" content="Join us on 7 May 2026 ❤️">
+<meta property="og:image" content="https://mohanraut033.github.io/wedding-invite/preview.jpg">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mohan ❤️ Samiksha Wedding Invitation">
+<meta name="twitter:description" content="Join us on 7 May 2026 ❤️">
+<meta name="twitter:image" content="https://mohanraut033.github.io/wedding-invite/preview.jpg">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -21,7 +35,7 @@ body {
     background: var(--pink-bg);
 }
 
-/* FLORAL BACKGROUND FOR SECTIONS */
+/* FLORAL BACKGROUND */
 header,
 .card {
     background: linear-gradient(rgba(253,236,239,0.75), rgba(253,236,239,0.75)),
@@ -29,7 +43,7 @@ header,
     background-size: cover;
 }
 
-/* BUTTON */
+/* BUTTON FEEDBACK */
 button {
     transition: 0.2s;
 }
@@ -103,6 +117,7 @@ header {
     font-family: 'Playfair Display';
     font-size: 42px;
     color: var(--gold-dark);
+    text-shadow: 0 0 10px rgba(212,175,55,0.4);
 }
 
 .heart-text {
@@ -324,7 +339,6 @@ footer {
 </footer>
 
 <script>
-// audio fade
 function fadeInAudio(audio){
     audio.volume=0;
     audio.play();
@@ -337,7 +351,6 @@ function fadeInAudio(audio){
     },200);
 }
 
-// card
 function openCard(){
     document.getElementById("flipCard").classList.add("flip");
     fadeInAudio(document.getElementById("bgMusic"));
@@ -348,7 +361,6 @@ function openCard(){
     },1000);
 }
 
-// music toggle
 function toggleMusic(){
     const m=document.getElementById("bgMusic");
     const btn=document.getElementById("musicBtn");
@@ -360,7 +372,6 @@ function toggleMusic(){
     }
 }
 
-// typing
 const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 let i=0;
 function startTyping(){
@@ -376,7 +387,6 @@ function startTyping(){
     type();
 }
 
-// countdown
 const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
     let now=new Date().getTime();
@@ -388,7 +398,6 @@ setInterval(()=>{
     document.getElementById("seconds").innerText=Math.floor((d%(1000*60))/1000);
 },1000);
 
-// scroll
 const observer=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
         if(e.isIntersecting) e.target.classList.add("show");
