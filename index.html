@@ -283,6 +283,9 @@ Private Wedding Invitation
 <input 
 id="guestPhone"
 placeholder="Enter Mobile Number"
+maxlength="10"
+inputmode="numeric"
+pattern="[0-9]*"
 style="
 padding:12px;
 border-radius:8px;
@@ -461,13 +464,22 @@ async function verifyGuest(){
 
 const phone = document.getElementById("guestPhone").value
 
+const phoneRegex = /^[6-9][0-9]{9}$/
+
 if(!phone){
 
 document.getElementById("errorMsg").innerText =
 "Please enter your mobile number"
 
 return
+}
 
+if(!phoneRegex.test(phone)){
+
+document.getElementById("errorMsg").innerText =
+"Please enter a valid 10-digit mobile number"
+
+return
 }
 
 const response = await fetch(`/api/verifyGuest?phone=${phone}`)
@@ -478,8 +490,6 @@ if(data.access){
 
 document.getElementById("accessGate").style.display="none"
 
-alert("Welcome " + data.name)
-
 }else{
 
 document.getElementById("accessGate").style.display="none"
@@ -488,6 +498,7 @@ document.getElementById("privatePage").style.display="flex"
 }
 
 }
+    
     
 function fadeInAudio(audio){
     audio.volume=0;
