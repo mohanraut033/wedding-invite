@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -20,6 +19,8 @@
 --gold-dark:#b8962e;
 }
 
+/* GLOBAL */
+
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
@@ -27,9 +28,9 @@ background:var(--pink-bg);
 overflow:hidden;
 }
 
-/* ================= */
+/* ===================== */
 /* ACCESS GATE */
-/* ================= */
+/* ===================== */
 
 .gate-wrapper{
 
@@ -151,6 +152,8 @@ from{opacity:0;transform:translateY(25px) scale(.96);}
 to{opacity:1;transform:translateY(0) scale(1);}
 }
 
+/* GATE EXIT */
+
 .gate-closing{
 animation:gateFadeOut .8s ease forwards;
 }
@@ -160,24 +163,17 @@ from{opacity:1;transform:scale(1);}
 to{opacity:0;transform:scale(1.05);}
 }
 
-/* ================= */
+/* ===================== */
 /* PETALS */
-/* ================= */
+/* ===================== */
 
 .petal{
-
 position:fixed;
-
-top:-50px;
-
-font-size:18px;
-
-animation:petalFall linear infinite;
-
+top:-40px;
 pointer-events:none;
-
 z-index:9999;
-
+font-size:18px;
+animation:petalFall linear infinite;
 }
 
 @keyframes petalFall{
@@ -194,9 +190,9 @@ opacity:0.8;
 
 }
 
-/* ================= */
+/* ===================== */
 /* INVITATION */
-/* ================= */
+/* ===================== */
 
 header,
 .card{
@@ -259,6 +255,45 @@ font-family:'Playfair Display';
 color:var(--gold-dark);
 }
 
+.event{
+margin-top:30px;
+}
+
+.event img{
+width:100%;
+border-radius:15px;
+margin-top:10px;
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.box{
+padding:12px;
+background:#fff7f0;
+border-radius:10px;
+}
+
+.box span{
+font-size:22px;
+font-weight:bold;
+color:var(--gold-dark);
+}
+
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:var(--gold);
+border-radius:50%;
+padding:12px;
+font-size:18px;
+}
+
 footer{
 text-align:center;
 padding:30px;
@@ -266,7 +301,6 @@ font-size:14px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -297,6 +331,7 @@ pattern="[0-9]*"
 
 </div>
 
+
 <!-- PRIVATE PAGE -->
 
 <div id="privatePage" class="gate-wrapper" style="display:none">
@@ -316,19 +351,25 @@ Please contact the hosts if you believe you received this link by mistake.
 
 </div>
 
+
+<audio id="bgMusic" loop>
+<source src="music.mp3">
+</audio>
+
+
+<!-- HERO -->
+
 <header>
 
 <div class="names">
 
 <h1>Mohan</h1>
-
 <div class="heart-text">❤️</div>
-
 <h1>Samiksha</h1>
 
 <p>With blessings of our families ❤️</p>
 
-<p style="font-style:italic">
+<p style="font-style:italic;">
 We would be honored to celebrate this special day with you
 </p>
 
@@ -336,26 +377,77 @@ We would be honored to celebrate this special day with you
 
 </header>
 
+
+<section class="card">
+<h2>Save the Date 💍</h2>
+<p><strong>7 May 2026</strong></p>
+</section>
+
+
+<section class="card">
+
+<h2>Countdown ⏳</h2>
+
+<div class="countdown">
+
+<div class="box"><span id="days"></span><p>Days</p></div>
+<div class="box"><span id="hours"></span><p>Hours</p></div>
+<div class="box"><span id="minutes"></span><p>Min</p></div>
+<div class="box"><span id="seconds"></span><p>Sec</p></div>
+
+</div>
+
+</section>
+
+
+<section class="card">
+
+<h2>Wedding Events 🎉</h2>
+
+<div class="event">
+<h3>💍 Engagement</h3>
+<img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
+<p><strong>Time: To be announced</strong></p>
+</div>
+
+<div class="event">
+<h3>🌼 Haldi</h3>
+<img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
+<p><strong>Time: To be announced</strong></p>
+</div>
+
+<div class="event">
+<h3>🍽️ Lunch</h3>
+<img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
+<p><strong>2:00 PM – 5:30 PM</strong></p>
+</div>
+
+<div class="event">
+<h3>🔥 Wedding</h3>
+<img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
+<p><strong>7 May 2026 | 6:59 PM</strong></p>
+</div>
+
+</section>
+
+
 <footer>
 Made with ❤️ by Mohan & Samiksha
 </footer>
+
 
 <script>
 
 function startPetals(){
 
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
 
 let petal=document.createElement("div")
-
 petal.className="petal"
-
 petal.innerHTML="🌸"
 
 petal.style.left=Math.random()*100+"vw"
-
-petal.style.animationDuration=(5+Math.random()*5)+"s"
-
+petal.style.animationDuration=(6+Math.random()*4)+"s"
 petal.style.fontSize=(14+Math.random()*10)+"px"
 
 document.body.appendChild(petal)
@@ -371,21 +463,16 @@ const phone=document.getElementById("guestPhone").value
 const phoneRegex=/^[6-9][0-9]{9}$/
 
 if(!phone){
-
 document.getElementById("errorMsg").innerText="Please enter your mobile number"
-
 return
 }
 
 if(!phoneRegex.test(phone)){
-
 document.getElementById("errorMsg").innerText="Please enter a valid 10-digit mobile number"
-
 return
 }
 
 const response=await fetch(`/api/verifyGuest?phone=${phone}`)
-
 const data=await response.json()
 
 if(data.access){
@@ -397,22 +484,47 @@ gate.classList.add("gate-closing")
 startPetals()
 
 setTimeout(()=>{
-
 gate.style.display="none"
-
 document.body.style.overflow="auto"
-
 },700)
 
 }else{
 
 document.getElementById("accessGate").style.display="none"
-
 document.getElementById("privatePage").style.display="flex"
 
 }
 
 }
+
+
+/* COUNTDOWN */
+
+const weddingDate=new Date("May 7, 2026 18:59:00").getTime()
+
+setInterval(()=>{
+
+let now=new Date().getTime()
+
+let d=weddingDate-now
+
+document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24))
+document.getElementById("hours").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60))
+document.getElementById("minutes").innerText=Math.floor((d%(1000*60*60))/(1000*60))
+document.getElementById("seconds").innerText=Math.floor((d%(1000*60))/1000)
+
+},1000)
+
+
+/* SCROLL ANIMATION */
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting) e.target.classList.add("show")
+})
+})
+
+document.querySelectorAll('.card').forEach(el=>observer.observe(el))
 
 </script>
 
