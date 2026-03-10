@@ -312,6 +312,40 @@ Access Invitation
 
 </div>
 
+<!-- PRIVATE INVITATION PAGE -->
+<div id="privatePage" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#fdecef;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:99998;
+font-family:Poppins;
+text-align:center;
+padding:20px;
+">
+
+<h2 style="font-family:'Playfair Display';color:#b8962e;">
+Private Wedding Invitation
+</h2>
+
+<p style="max-width:350px;">
+This invitation is intended only for selected guests.
+If you believe you received this link by mistake,
+please contact the hosts.
+</p>
+
+<p style="margin-top:20px;font-weight:500;">
+Mohan & Samiksha
+</p>
+
+</div>
+
 <audio id="bgMusic" loop>
     <source src="music.mp3">
 </audio>
@@ -448,8 +482,8 @@ alert("Welcome " + data.name)
 
 }else{
 
-document.getElementById("errorMsg").innerText =
-"Mobile number not recognized"
+document.getElementById("accessGate").style.display="none"
+document.getElementById("privatePage").style.display="flex"
 
 }
 
