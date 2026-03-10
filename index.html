@@ -51,6 +51,91 @@
 
 <style>
 
+
+/* FULL SCREEN GATE BACKGROUND */
+
+.gate-wrapper{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(rgba(253,236,239,0.85),rgba(253,236,239,0.85)),
+url('background.png');
+
+background-size:cover;
+
+z-index:99999;
+padding:20px;
+}
+
+/* CARD */
+
+.gate-card{
+background:white;
+padding:35px 25px;
+border-radius:20px;
+max-width:340px;
+width:100%;
+
+text-align:center;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* TITLE */
+
+.gate-card h2{
+font-family:'Playfair Display';
+color:#b8962e;
+margin-bottom:12px;
+}
+
+/* TEXT */
+
+.gate-card p{
+font-size:14px;
+margin-bottom:15px;
+}
+
+/* INPUT */
+
+.gate-card input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+text-align:center;
+font-size:16px;
+}
+
+/* BUTTON */
+
+.gate-card button{
+margin-top:15px;
+padding:10px 20px;
+background:#d4af37;
+border:none;
+border-radius:20px;
+color:white;
+cursor:pointer;
+width:100%;
+}
+
+/* ERROR MESSAGE */
+
+#errorMsg{
+color:red;
+margin-top:10px;
+font-size:13px;
+}
+
 /* ACCESS GATE */
 
 #accessGate{
@@ -329,9 +414,9 @@ footer {
 <body>
 
 <!-- ACCESS GATE -->
-<div id="accessGate">
+<div id="accessGate" class="gate-wrapper">
 
-<div class="gate-box">
+<div class="gate-card">
 
 <h2>Private Wedding Invitation</h2>
 
@@ -343,7 +428,7 @@ placeholder="Enter Mobile Number"
 maxlength="10"
 inputmode="numeric"
 pattern="[0-9]*"
->
+/>
 
 <button onclick="verifyGuest()">
 Access Invitation
@@ -358,36 +443,23 @@ Access Invitation
     
 
 <!-- PRIVATE INVITATION PAGE -->
-<div id="privatePage" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:#fdecef;
-display:none;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:99998;
-font-family:Poppins;
-text-align:center;
-padding:20px;
-">
+<div id="privatePage" class="gate-wrapper" style="display:none;">
 
-<h2 style="font-family:'Playfair Display';color:#b8962e;">
-Private Wedding Invitation
-</h2>
+<div class="gate-card">
 
-<p style="max-width:350px;">
+<h2>Private Invitation</h2>
+
+<p>
 This invitation is intended only for selected guests.
 If you believe you received this link by mistake,
 please contact the hosts.
 </p>
 
-<p style="margin-top:20px;font-weight:500;">
-Mohan Raut
-</p>
+<button onclick="location.reload()">
+Try Again
+</button>
+
+</div>
 
 </div>
 
