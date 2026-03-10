@@ -8,8 +8,6 @@
 
 <title>Mohan & Samiksha Wedding Invitation</title>
 
-<meta name="description" content="Join us to celebrate the wedding of Mohan & Samiksha on 7 May 2026 at Hotel Amrai 69, Pune.">
-
 <link rel="icon" type="image/png" href="/favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -22,8 +20,6 @@
 --gold-dark:#b8962e;
 }
 
-/* GLOBAL */
-
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
@@ -31,9 +27,9 @@ background:var(--pink-bg);
 overflow:hidden;
 }
 
-/* ===================== */
+/* ================= */
 /* ACCESS GATE */
-/* ===================== */
+/* ================= */
 
 .gate-wrapper{
 
@@ -42,7 +38,7 @@ top:0;
 left:0;
 
 width:100%;
-min-height:100vh;
+height:100dvh;
 
 display:flex;
 justify-content:center;
@@ -78,6 +74,8 @@ box-shadow:0 20px 50px rgba(0,0,0,0.15);
 
 text-align:center;
 
+animation:cardFadeIn .6s ease;
+
 }
 
 .gate-card h2{
@@ -112,8 +110,8 @@ text-align:center;
 
 font-size:15px;
 
-display:block;
 margin:auto;
+display:block;
 
 box-sizing:border-box;
 
@@ -140,8 +138,6 @@ font-size:15px;
 
 cursor:pointer;
 
-display:block;
-
 }
 
 #errorMsg{
@@ -150,48 +146,90 @@ font-size:13px;
 margin-top:8px;
 }
 
-/* ===================== */
+@keyframes cardFadeIn{
+from{opacity:0;transform:translateY(25px) scale(.96);}
+to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+.gate-closing{
+animation:gateFadeOut .8s ease forwards;
+}
+
+@keyframes gateFadeOut{
+from{opacity:1;transform:scale(1);}
+to{opacity:0;transform:scale(1.05);}
+}
+
+/* ================= */
+/* PETALS */
+/* ================= */
+
+.petal{
+
+position:fixed;
+
+top:-50px;
+
+font-size:18px;
+
+animation:petalFall linear infinite;
+
+pointer-events:none;
+
+z-index:9999;
+
+}
+
+@keyframes petalFall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0.8;
+}
+
+}
+
+/* ================= */
 /* INVITATION */
-/* ===================== */
+/* ================= */
 
 header,
 .card{
+
 background:
 linear-gradient(rgba(253,236,239,0.75),rgba(253,236,239,0.75)),
 url('background.png');
+
 background-size:cover;
+
 }
 
 header{
-
 padding:80px 20px;
 text-align:center;
-
 }
 
 .names h1{
-
 font-family:'Playfair Display';
 font-size:42px;
 color:var(--gold-dark);
-
 }
 
 .heart-text{
-
 font-size:30px;
 color:var(--gold);
-
 }
 
 .story-hero{
-
 margin-top:25px;
 padding:20px;
-
 background:rgba(255,255,255,0.6);
 border-radius:15px;
-
 }
 
 .card{
@@ -201,107 +239,34 @@ padding:30px;
 max-width:800px;
 
 border-radius:20px;
-
 border-top:4px solid var(--gold);
 
 text-align:center;
 
 opacity:0;
 transform:translateY(30px);
-
-transition:0.6s;
+transition:.6s;
 
 }
 
 .card.show{
-
 opacity:1;
 transform:translateY(0);
-
 }
 
 h2{
-
 font-family:'Playfair Display';
 color:var(--gold-dark);
-
-}
-
-.event{
-
-margin-top:30px;
-
-}
-
-.event img{
-
-width:100%;
-border-radius:15px;
-margin-top:10px;
-
-}
-
-.countdown{
-
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-
-}
-
-.box{
-
-padding:12px;
-background:#fff7f0;
-border-radius:10px;
-
-}
-
-.box span{
-
-font-size:22px;
-font-weight:bold;
-color:var(--gold-dark);
-
-}
-
-button{
-
-margin-top:20px;
-padding:12px 25px;
-
-background:var(--gold);
-color:white;
-
-border:none;
-border-radius:25px;
-
-}
-
-.music-btn{
-
-position:fixed;
-top:20px;
-right:20px;
-
-background:var(--gold);
-border-radius:50%;
-padding:12px;
-
-font-size:18px;
-
 }
 
 footer{
-
 text-align:center;
 padding:30px;
 font-size:14px;
-
 }
 
 </style>
+
 </head>
 
 <body>
@@ -329,8 +294,8 @@ pattern="[0-9]*"
 <p id="errorMsg"></p>
 
 </div>
-</div>
 
+</div>
 
 <!-- PRIVATE PAGE -->
 
@@ -351,12 +316,6 @@ Please contact the hosts if you believe you received this link by mistake.
 
 </div>
 
-
-<audio id="bgMusic" loop>
-<source src="music.mp3">
-</audio>
-
-
 <header>
 
 <div class="names">
@@ -373,55 +332,37 @@ Please contact the hosts if you believe you received this link by mistake.
 We would be honored to celebrate this special day with you
 </p>
 
-<div class="story-hero">
-
-<h2>Our Story</h2>
-
-<p id="typingText"></p>
-
-<p id="marathiText" style="opacity:0">“शुभ मंगल सावधान”</p>
-
-</div>
-
 </div>
 
 </header>
 
-
-<section class="card">
-
-<h2>Save the Date 💍</h2>
-
-<p><strong>7 May 2026</strong></p>
-
-</section>
-
-
-<section class="card">
-
-<h2>Countdown ⏳</h2>
-
-<div class="countdown">
-
-<div class="box"><span id="days"></span><p>Days</p></div>
-
-<div class="box"><span id="hours"></span><p>Hours</p></div>
-
-<div class="box"><span id="minutes"></span><p>Min</p></div>
-
-<div class="box"><span id="seconds"></span><p>Sec</p></div>
-
-</div>
-
-</section>
-
-
 <footer>
-Made with ❤️ by Mohan
+Made with ❤️ by Mohan & Samiksha
 </footer>
 
-
 <script>
+
+function startPetals(){
+
+for(let i=0;i<20;i++){
+
+let petal=document.createElement("div")
+
+petal.className="petal"
+
+petal.innerHTML="🌸"
+
+petal.style.left=Math.random()*100+"vw"
+
+petal.style.animationDuration=(5+Math.random()*5)+"s"
+
+petal.style.fontSize=(14+Math.random()*10)+"px"
+
+document.body.appendChild(petal)
+
+}
+
+}
 
 async function verifyGuest(){
 
@@ -449,9 +390,19 @@ const data=await response.json()
 
 if(data.access){
 
-document.getElementById("accessGate").style.display="none"
+const gate=document.getElementById("accessGate")
+
+gate.classList.add("gate-closing")
+
+startPetals()
+
+setTimeout(()=>{
+
+gate.style.display="none"
 
 document.body.style.overflow="auto"
+
+},700)
 
 }else{
 
