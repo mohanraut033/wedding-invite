@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<!-- VIEWPORT -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Mohan & Samiksha Wedding Invitation</title>
 
+
+
+<!-- BASIC SEO -->
 <meta name="title" content="Mohan & Samiksha Wedding Invitation">
 <meta name="description" content="With the blessings of our families, we warmly invite you to celebrate the wedding of Mohan & Samiksha on 7 May 2026 at Hotel Amrai 69, Pune. Your presence will make our celebration even more special.">
 <meta name="keywords" content="Mohan Samiksha Wedding, Wedding Invitation, Indian Wedding Invite, Pune Wedding">
 <meta name="author" content="Mohan Raut">
 
+<!-- MOBILE THEME COLOR -->
 <meta name="theme-color" content="#fdecef">
 
+<!-- OPEN GRAPH (WhatsApp / Facebook / LinkedIn) -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_IN">
 <meta property="og:title" content="💌 Mohan & Samiksha Wedding Invitation">
@@ -27,325 +33,410 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Mohan & Samiksha Wedding Invitation Card">
 
+<!-- TWITTER / X PREVIEW -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="💌 Mohan & Samiksha Wedding Invitation">
 <meta name="twitter:description" content="Join us to celebrate our wedding on 7 May 2026. Your presence will make our celebration even more special.">
 <meta name="twitter:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg?v=4">
 
+<!-- FAVICON -->
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 
+<!-- CANONICAL URL -->
 <link rel="canonical" href="https://mohanwedssamiksha.vercel.app/">
 
+<!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
-/* FIX: CENTERED GATE WRAPPER */
+
+/* FULL SCREEN GATE BACKGROUND */
+/* GATE WRAPPER */
+
 .gate-wrapper{
 position:fixed;
 top:0;
 left:0;
+
 width:100%;
-height:100%; /* Changed to height for perfect centering */
+height:100%;
+
 display:flex;
 justify-content:center;
-align-items:center; /* Changed from flex-start to center for Mobile UI */
+align-items:center;
+
 padding:20px;
-background: linear-gradient(rgba(253,236,239,0.92), rgba(253,236,239,0.92)), url('background.png');
+
+background:
+linear-gradient(rgba(253,236,239,0.92), rgba(253,236,239,0.92)),
+url('background.png');
+
 background-size:cover;
 background-position:center;
+
 z-index:99999;
 box-sizing: border-box;
+overflow:auto;
 }
 
-/* FIX: MOBILE RESPONSIVE GATE CARD */
+/* GATE CARD */
+
 .gate-card{
+
 width:100%;
 max-width:340px;
+
 background:white;
+
 padding:32px 24px;
+
 border-radius:22px;
+
 border-top:4px solid #d4af37;
+
 box-shadow:0 20px 50px rgba(0,0,0,0.15);
+
 text-align:center;
-box-sizing: border-box; /* Ensures padding doesn't break width */
+
+box-sizing: border-box;
+
 }
 
 .gate-card h2{
+
 font-family:'Playfair Display';
+
 color:#b8962e;
+
 margin-bottom:12px;
-font-size:26px;
+
+font-size:28px;
+
+}
+
+
+.gate-card p {
+    font-size: 15px;
+    margin-bottom: 18px;
+    line-height: 1.5;
 }
 
 .gate-card input{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:1px solid #ddd;
-text-align:center;
-font-size:16px; /* 16px prevents mobile auto-zoom */
-outline:none;
-transition:0.2s;
-display:block;
-box-sizing:border-box;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px; /* 16px prevents iOS zoom-on-focus */
+    outline: none;
+    transition: 0.2s;
+    display: block;
+    box-sizing: border-box;
+
 }
 
 .gate-card input:focus{
+
 border-color:#d4af37;
+
 box-shadow:0 0 6px rgba(212,175,55,0.3);
+
 }
 
-.gate-card button{
-width:100%;
-margin-top:16px;
-display:block;
-padding:13px;
-background:#d4af37;
-border:none;
-border-radius:30px;
-color:white;
-font-size:15px;
-cursor:pointer;
-transition:0.2s;
+
+.gate-card button {
+    width: 100%;
+    margin-top: 16px;
+    padding: 13px;
+    background: #d4af37;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.gate-card button:hover{
-transform:scale(1.03);
-box-shadow:0 5px 15px rgba(212,175,55,0.4);
-}
-
-.gate-card p{
-font-size:15px;
-margin-bottom:18px;
-line-height:1.5;
-}
+/* ERROR TEXT */
 
 #errorMsg{
+
 color:red;
+
 margin-top:10px;
+
 font-size:13px;
+
 }
 
-body{
-overflow:hidden;
-}
-    
+    
 :root {
---pink-bg: #fdecef;
---gold: #d4af37;
---gold-dark: #b8962e;
+    --pink-bg: #fdecef;
+    --gold: #d4af37;
+    --gold-dark: #b8962e;
 }
 
 body {
-margin: 0;
-font-family: 'Poppins', sans-serif;
-background: var(--pink-bg);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--pink-bg);
+}
+
+    overflow: hidden; /* Kept from your original logic */
 }
 
 /* FLORAL BACKGROUND */
 header,
 .card {
-background: linear-gradient(rgba(253,236,239,0.75), rgba(253,236,239,0.75)),
-            url('background.png');
-background-size: cover;
+    background: linear-gradient(rgba(253,236,239,0.75), rgba(253,236,239,0.75)),
+                url('background.png');
+    background-size: cover;
 }
 
 /* BUTTON FEEDBACK */
 button {
-transition: 0.2s;
+    transition: 0.2s;
 }
 button:active {
-transform: scale(0.95);
-box-shadow: 0 0 10px rgba(212,175,55,0.6);
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(212,175,55,0.6);
 }
 
 /* INTRO */
 #intro {
-position: fixed;
-width: 100%;
-height: 100%;
-background: var(--pink-bg);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--pink-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
 .flip-inner {
-width: 300px;
-height: 200px;
-transform-style: preserve-3d;
-transition: 1s;
-cursor: pointer;
-position: relative;
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: 1s;
+    cursor: pointer;
+    position: relative;
 }
 
 .flip-inner.flip {
-transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
 .flip-front, .flip-back {
-position: absolute;
-width: 100%;
-height: 100%;
-border-radius: 20px;
-backface-visibility: hidden;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .flip-front {
-background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)), url('background.png');
-background-size: cover;
+    background: linear-gradient(rgba(253,236,239,0.7), rgba(253,236,239,0.7)), url('background.png');
+    background-size: cover;
 }
 
 .flip-back {
-transform: rotateY(180deg);
-background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)), url('background.png');
-background-size: cover;
+    transform: rotateY(180deg);
+    background: linear-gradient(rgba(253,236,239,0.8), rgba(253,236,239,0.8)), url('background.png');
+    background-size: cover;
 }
 
 /* HERO */
 header {
-padding: 80px 20px;
-text-align: center;
-animation: zoomBg 20s infinite alternate;
+    padding: 80px 20px;
+    text-align: center;
+    animation: zoomBg 20s infinite alternate;
 }
 
 @keyframes zoomBg {
-from {background-size: 100%;}
-to {background-size: 110%;}
+    from {background-size: 100%;}
+    to {background-size: 110%;}
 }
 
 .names h1 {
-font-family: 'Playfair Display';
-font-size: 42px;
-color: var(--gold-dark);
-text-shadow: 0 0 10px rgba(212,175,55,0.4);
+    font-family: 'Playfair Display';
+    font-size: 42px;
+    color: var(--gold-dark);
+    text-shadow: 0 0 10px rgba(212,175,55,0.4);
 }
 
 .heart-text {
-font-size: 30px;
-color: var(--gold);
+    font-size: 30px;
+    color: var(--gold);
 }
 
 /* STORY */
 .story-hero {
-margin-top: 25px;
-padding: 20px;
-background: rgba(255,255,255,0.6);
-border-radius: 15px;
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 15px;
+}
+
+.story-hero p {
+    white-space: normal !important;
+    overflow: visible !important;
 }
 
 /* CARD */
 .card {
-margin: 40px auto;
-padding: 30px;
-max-width: 800px;
-width: 90%; /* Responsive card width */
-border-radius: 20px;
-border-top: 4px solid var(--gold);
-text-align: center;
-opacity: 0;
-transform: translateY(30px);
-transition: 0.6s;
-box-sizing: border-box;
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 20px;
+    border-top: 4px solid var(--gold);
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s;
 }
 
 .card.show {
-opacity: 1;
-transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2 {
-font-family: 'Playfair Display';
-font-size: 28px;
-color: var(--gold-dark);
+    font-family: 'Playfair Display';
+    font-size: 28px;
+    color: var(--gold-dark);
 }
 
 /* EVENTS */
 .event {
-margin-top: 30px;
+    margin-top: 30px;
 }
 
 .event img {
-width: 100%;
-border-radius: 15px;
-margin-top: 10px;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.event p strong {
+    color: var(--gold);
 }
 
 /* COUNTDOWN */
 .countdown {
-display: flex;
-justify-content: center;
-gap: 10px;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .box {
-padding: 12px;
-background: #fff7f0;
-border-radius: 10px;
+    padding: 12px;
+    background: #fff7f0;
+    border-radius: 10px;
+}
+.box span {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--gold-dark);
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    border-radius: 25px;
 }
 
 /* MUSIC */
 .music-btn {
-position: fixed;
-top: 20px;
-right: 20px;
-background: var(--gold);
-border-radius: 50%;
-padding: 12px;
-font-size: 18px;
-z-index: 1000;
-border: none;
-color: white;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 18px;
 }
 
 /* FOOTER */
 footer {
-text-align: center;
-padding: 30px;
-font-size: 14px;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
+<!-- ACCESS GATE -->
 <div id="accessGate" class="gate-wrapper">
+
   <div class="gate-card">
+
     <h2>Private Wedding Invitation</h2>
-    <p>Please enter the mobile number where you received this invitation</p>
+
+    <p>
+      Please enter the mobile number where you received this invitation
+    </p>
+
     <input
       id="guestPhone"
       placeholder="Enter Mobile Number"
       maxlength="10"
       inputmode="numeric"
       pattern="[0-9]*"
-      oninput="this.value = this.value.replace(/[^0-9]/g, '');"
     >
-    <button onclick="verifyGuest()">Access Invitation</button>
+
+    <button onclick="verifyGuest()">
+      Access Invitation
+    </button>
+
     <p id="errorMsg"></p>
+
   </div>
+
 </div>
 
+
+<!-- PRIVATE PAGE -->
 <div id="privatePage" class="gate-wrapper" style="display:none">
+
   <div class="gate-card">
-    <h2>Access Denied</h2>
-    <p>This invitation is intended only for selected guests. Please contact the hosts if you believe you received this link by mistake.</p>
-    <button onclick="location.reload()">Try Again</button>
+
+    <h2>Private Invitation</h2>
+
+    <p>
+      This invitation is intended only for selected guests.
+      Please contact the hosts if you believe you received this link by mistake.
+    </p>
+
+    <button onclick="location.reload()">
+      Try Again
+    </button>
+
   </div>
+
 </div>
+
+
 
 <audio id="bgMusic" loop>
     <source src="music.mp3">
 </audio>
 
+<!-- INTRO -->
 <div id="intro">
     <div class="flip-inner" id="flipCard" onclick="openCard()">
         <div class="flip-front">
@@ -367,7 +458,11 @@ font-size: 14px;
         <div class="heart-text">❤️</div>
         <h1>Samiksha</h1>
         <p>With blessings of our families ❤️</p>
-        <p style="font-style:italic;">We would be honored to celebrate this special day with you</p>
+
+        <p style="font-style:italic;">
+        We would be honored to celebrate this special day with you
+        </p>
+
         <div class="story-hero">
             <h2>Our Story</h2>
             <p id="typingText"></p>
@@ -393,11 +488,25 @@ font-size: 14px;
 
 <section class="card">
     <h2>Wedding Events 🎉</h2>
+
     <div class="event">
         <h3>💍 Engagement</h3>
         <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
         <p><strong>Time: To be announced</strong></p>
     </div>
+
+    <div class="event">
+        <h3>🌼 Haldi</h3>
+        <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
+        <p><strong>Time: To be announced</strong></p>
+    </div>
+
+    <div class="event">
+        <h3>🍽️ Lunch</h3>
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
+        <p><strong>2:00 PM – 5:30 PM</strong></p>
+    </div>
+
     <div class="event">
         <h3>🔥 Wedding</h3>
         <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
@@ -409,50 +518,72 @@ font-size: 14px;
     <h2>Venue 📍</h2>
     <p><strong>Hotel Amrai 69</strong></p>
     <p>Saswad - Bopdev - Pune Rd, Kondhwa, Bhivri, Maharashtra 412301</p>
-    <iframe src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed" width="100%" height="250" style="border-radius:15px;border:0;"></iframe>
-    <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">View on Maps</button>
+
+    <iframe 
+        src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
+        width="100%" height="250"
+        style="border-radius:15px;border:0;">
+    </iframe>
+
+    <button onclick="window.open('https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8')">
+        View on Maps
+    </button>
 </section>
 
 <section class="card">
     <h2>RSVP 💌</h2>
-    <button onclick="window.location.href='https://wa.me/9767933883?text=I will attend your wedding'">Confirm on WhatsApp</button>
+    <button onclick="window.location.href='https://wa.me/9767933883?text=I will attend your wedding'">
+        Confirm on WhatsApp
+    </button>
 </section>
 
-<footer>Made with ❤️ by Mohan & Samiksha</footer>
+<footer>
+    Made with ❤️ by Mohan & Samiksha
+</footer>
 
 <script>
+
 async function verifyGuest(){
-    const phone = document.getElementById("guestPhone").value;
-    const phoneRegex = /^[0-9]{10}$/;
 
-    if(!phone){
-        document.getElementById("errorMsg").innerText = "Please enter your mobile number";
-        return;
-    }
-    if(!phoneRegex.test(phone)){
-        document.getElementById("errorMsg").innerText = "Please enter a valid 10-digit mobile number";
-        return;
-    }
+const phone = document.getElementById("guestPhone").value
 
-    // Direct check for your test number
-    if(phone === "8888888888") {
-        document.getElementById("accessGate").style.display="none";
-        document.body.style.overflow="auto";
-        return;
-    }
+const phoneRegex = /^[6-9][0-9]{9}$/
 
-    const response = await fetch(`/api/verifyGuest?phone=${phone}`);
-    const data = await response.json();
+if(!phone){
 
-    if(data.access){
-        document.getElementById("accessGate").style.display="none";
-        document.body.style.overflow="auto";
-    }else{
-        document.getElementById("accessGate").style.display="none";
-        document.getElementById("privatePage").style.display="flex";
-    }
+document.getElementById("errorMsg").innerText =
+"Please enter your mobile number"
+
+return
 }
-    
+
+if(!phoneRegex.test(phone)){
+
+document.getElementById("errorMsg").innerText =
+"Please enter a valid 10-digit mobile number"
+
+return
+}
+
+const response = await fetch(`/api/verifyGuest?phone=${phone}`)
+
+const data = await response.json()
+
+if(data.access){
+
+document.getElementById("accessGate").style.display="none"
+document.body.style.overflow="auto"
+
+}else{
+
+document.getElementById("accessGate").style.display="none"
+document.getElementById("privatePage").style.display="flex"
+
+}
+
+}
+    
+    
 function fadeInAudio(audio){
     audio.volume=0;
     audio.play();
@@ -468,6 +599,7 @@ function fadeInAudio(audio){
 function openCard(){
     document.getElementById("flipCard").classList.add("flip");
     fadeInAudio(document.getElementById("bgMusic"));
+
     setTimeout(()=>{
         document.getElementById("intro").style.display="none";
         startTyping();
@@ -477,8 +609,12 @@ function openCard(){
 function toggleMusic(){
     const m=document.getElementById("bgMusic");
     const btn=document.getElementById("musicBtn");
-    if(m.paused){ m.play(); btn.innerHTML="🔊"; } 
-    else { m.pause(); btn.innerHTML="🔇"; }
+
+    if(m.paused){
+        m.play(); btn.innerHTML="🔊";
+    } else {
+        m.pause(); btn.innerHTML="🔇";
+    }
 }
 
 const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
@@ -500,6 +636,7 @@ const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
 setInterval(()=>{
     let now=new Date().getTime();
     let d=weddingDate-now;
+
     document.getElementById("days").innerText=Math.floor(d/(1000*60*60*24));
     document.getElementById("hours").innerText=Math.floor((d%(1000*60*60*24))/(1000*60*60));
     document.getElementById("minutes").innerText=Math.floor((d%(1000*60*60))/(1000*60));
