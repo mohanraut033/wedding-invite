@@ -61,13 +61,13 @@ top:0;
 left:0;
 
 width:100%;
-min-height:100vh;
+min-height:100%;
 
 display:flex;
 justify-content:center;
-align-items:flex-start;
+align-items:center;
 
-padding:80px 20px 40px;
+padding: 20px;
 
 background:
 linear-gradient(rgba(253,236,239,0.92), rgba(253,236,239,0.92)),
@@ -77,7 +77,7 @@ background-size:cover;
 background-position:center;
 
 z-index:99999;
-
+box-sizing: border-box;
 overflow:auto;
 }
 
@@ -99,8 +99,7 @@ border-top:4px solid #d4af37;
 box-shadow:0 20px 50px rgba(0,0,0,0.15);
 
 text-align:center;
-
-margin:auto;
+box-sizing: border-box; 
 
 }
 
@@ -112,10 +111,16 @@ color:#b8962e;
 
 margin-bottom:12px;
 
-font-size:28px;
+font-size:26px;
 
 }
 
+.gate-card p {
+    font-size: 15px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+    
 .gate-card input{
 
 width:100%;
@@ -129,7 +134,7 @@ border:1px solid #ddd;
 
 text-align:center;
 
-font-size:15px;
+font-size:16px;
 
 outline:none;
 
@@ -154,11 +159,8 @@ box-shadow:0 0 6px rgba(212,175,55,0.3);
 .gate-card button{
 
 width:100%;
-max-width:260px;
 
-margin:16px auto 0;
-
-display:block;
+margin-top:16px;
 
 padding:13px;
 
