@@ -61,13 +61,13 @@ top:0;
 left:0;
 
 width:100%;
-height:100%;
+min-height:100vh;
 
 display:flex;
 justify-content:center;
-align-items:center;
+align-items:flex-start;
 
-padding:20px;
+padding:80px 20px 40px;
 
 background:
 linear-gradient(rgba(253,236,239,0.92), rgba(253,236,239,0.92)),
@@ -77,7 +77,7 @@ background-size:cover;
 background-position:center;
 
 z-index:99999;
-box-sizing: border-box;
+
 overflow:auto;
 }
 
@@ -100,7 +100,7 @@ box-shadow:0 20px 50px rgba(0,0,0,0.15);
 
 text-align:center;
 
-box-sizing: border-box;
+margin:auto;
 
 }
 
@@ -116,24 +116,30 @@ font-size:28px;
 
 }
 
-
-.gate-card p {
-    font-size: 15px;
-    margin-bottom: 18px;
-    line-height: 1.5;
-}
-
 .gate-card input{
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 16px; /* 16px prevents iOS zoom-on-focus */
-    outline: none;
-    transition: 0.2s;
-    display: block;
-    box-sizing: border-box;
+
+width:100%;
+max-width:260px;
+
+padding:12px;
+
+border-radius:10px;
+
+border:1px solid #ddd;
+
+text-align:center;
+
+font-size:15px;
+
+outline:none;
+
+transition:0.2s;
+
+margin:0 auto;
+
+display:block;
+
+box-sizing:border-box;
 
 }
 
@@ -145,18 +151,71 @@ box-shadow:0 0 6px rgba(212,175,55,0.3);
 
 }
 
+.gate-card button{
 
-.gate-card button {
-    width: 100%;
-    margin-top: 16px;
-    padding: 13px;
-    background: #d4af37;
-    border: none;
-    border-radius: 30px;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.2s;
+width:100%;
+max-width:260px;
+
+margin:16px auto 0;
+
+display:block;
+
+padding:13px;
+
+background:#d4af37;
+
+border:none;
+
+border-radius:30px;
+
+color:white;
+
+font-size:15px;
+
+cursor:pointer;
+
+transition:0.2s;
+
+}
+
+.gate-card button:hover{
+
+transform:scale(1.03);
+
+box-shadow:0 5px 15px rgba(212,175,55,0.4);
+
+}
+
+.gate-card{
+max-width:340px;
+width:90%;
+}
+
+
+
+/* TITLE */
+
+.gate-card h2{
+
+font-family:'Playfair Display';
+color:#b8962e;
+
+margin-bottom:12px;
+
+font-size:26px;
+
+}
+
+/* TEXT */
+
+.gate-card p{
+
+font-size:15px;
+
+margin-bottom:18px;
+
+line-height:1.5;
+
 }
 
 /* ERROR TEXT */
@@ -171,6 +230,48 @@ font-size:13px;
 
 }
 
+.gate-box h2{
+font-family:'Playfair Display';
+color:#b8962e;
+margin-bottom:10px;
+}
+
+.gate-box p{
+font-size:14px;
+margin-bottom:15px;
+}
+
+.gate-box input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-top:5px;
+text-align:center;
+font-size:16px;
+}
+
+.gate-box button{
+margin-top:15px;
+padding:10px 20px;
+background:#d4af37;
+border:none;
+border-radius:20px;
+color:white;
+cursor:pointer;
+width:100%;
+}
+
+#errorMsg{
+color:red;
+margin-top:10px;
+font-size:13px;
+}
+
+body{
+overflow:hidden;
+}
+
     
 :root {
     --pink-bg: #fdecef;
@@ -182,9 +283,6 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: var(--pink-bg);
-}
-
-    overflow: hidden; /* Kept from your original logic */
 }
 
 /* FLORAL BACKGROUND */
@@ -397,7 +495,6 @@ footer {
       maxlength="10"
       inputmode="numeric"
       pattern="[0-9]*"
-      oninput="this.value = this.value.replace(/[^0-9]/g, '');"
     >
 
     <button onclick="verifyGuest()">
