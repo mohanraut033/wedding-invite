@@ -245,6 +245,18 @@ color:var(--gold);
 .subtitle{
 margin-top:14px;
 font-size:15px;
+line-height:1.7;
+}
+
+#welcomeText{
+display:block;
+font-weight:600;
+color:var(--gold-dark);
+margin-bottom:4px;
+}
+
+.blessing-line{
+display:block;
 }
 
 .story{
@@ -437,7 +449,7 @@ h2.section-title{font-size:26px;}
 </div>
 
 <div class="flip-side flip-back">
-<h2>Mohan ❤️ Samiksha</h2>
+<h2>Mohan Weds Samiksha</h2>
 <p>7 May 2026</p>
 </div>
 
@@ -462,7 +474,10 @@ h2.section-title{font-size:26px;}
 <div class="heart">❤️</div>
 <h1>Samiksha</h1>
 
-<p class="subtitle">With the blessings of our families</p>
+<p class="subtitle">
+<span id="welcomeText"></span>
+<span class="blessing-line">With the blessings of our families</span>
+</p>
 
 <div class="story">
 <p id="typingText"></p>
@@ -496,25 +511,25 @@ h2.section-title{font-size:26px;}
 <div class="event">
 <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470" alt="">
 <h3>💍 Engagement</h3>
-<p>Time: To be announced</p>
+<p>10:00 AM</p>
 </div>
 
 <div class="event">
 <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470" alt="">
 <h3>🌼 Haldi</h3>
-<p>Time: To be announced</p>
+<p>11:00 AM</p>
 </div>
 
 <div class="event">
 <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470" alt="">
-<h3>🍽️ Lunch</h3>
-<p>2:00 PM – 5:30 PM</p>
+<h3>🍽️ Bhojan</h3>
+<p>1:00 PM – 4:00 PM</p>
 </div>
 
 <div class="event">
 <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470" alt="">
 <h3>🔥 Wedding</h3>
-<p>7 May 2026 • 6:59 PM</p>
+<p>7 May 2026 • 2:31 PM</p>
 </div>
 
 </div>
@@ -685,7 +700,7 @@ document.body.style.overflow="auto";
 
 if(guestName){
 document.querySelector(".subtitle").innerText=
-`Welcome ${guestName} & Family • With the blessings of our families`;
+`Welcome ${guestName} & Family`;
 }
 
 startTyping();
