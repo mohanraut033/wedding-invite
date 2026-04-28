@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Mohan & Samiksha Wedding Invitation</title>
 
@@ -15,13 +15,16 @@
 <meta property="og:description" content="Join us on 7 May 2026 ❤️">
 <meta property="og:url" content="https://mohanwedssamiksha.vercel.app/">
 <meta property="og:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="💌 Mohan & Samiksha Wedding Invitation">
 <meta name="twitter:description" content="Join us on 7 May 2026 ❤️">
 <meta name="twitter:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
 
-<link rel="icon" href="/favicon.png">
+<link rel="icon" type="image/png" href="/favicon.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -38,6 +41,10 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Poppins',sans-serif;
 background:var(--pink);
@@ -45,9 +52,19 @@ color:var(--text);
 overflow:hidden;
 }
 
+/* ---------- GLOBAL BG ---------- */
+
+.floral-bg{
+background:
+linear-gradient(rgba(253,236,239,.78),rgba(253,236,239,.78)),
+url('background.png');
+background-size:cover;
+background-position:center;
+}
+
 /* ---------- ACCESS GATE ---------- */
 
-.gate{
+#gate{
 position:fixed;
 inset:0;
 z-index:99999;
@@ -55,11 +72,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
-background:
-linear-gradient(rgba(253,236,239,.92),rgba(253,236,239,.92)),
-url('background.png');
-background-size:cover;
-background-position:center;
 overflow:auto;
 }
 
@@ -76,7 +88,7 @@ animation:popup .6s ease;
 }
 
 @keyframes popup{
-from{opacity:0;transform:translateY(20px) scale(.96);}
+from{opacity:0;transform:translateY(25px) scale(.96);}
 to{opacity:1;transform:translateY(0) scale(1);}
 }
 
@@ -98,8 +110,8 @@ color:#666;
 width:100%;
 padding:13px;
 margin-bottom:12px;
-border:1px solid #ddd;
 border-radius:12px;
+border:1px solid #ddd;
 font-size:15px;
 text-align:center;
 outline:none;
@@ -135,59 +147,97 @@ font-size:13px;
 color:#d9534f;
 }
 
-.fade-out{
-animation:fadeOut .8s ease forwards;
-}
+/* ---------- INTRO CARD ---------- */
 
-@keyframes fadeOut{
-to{
-opacity:0;
-transform:scale(1.05);
-}
-}
-
-/* ---------- PETALS ---------- */
-
-.petal{
+#intro{
 position:fixed;
-top:-40px;
-pointer-events:none;
-z-index:9999;
-animation:fall linear forwards;
+inset:0;
+z-index:99998;
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-@keyframes fall{
-0%{transform:translateY(-40px) rotate(0deg);opacity:1;}
-100%{transform:translateY(110vh) rotate(360deg);opacity:.9;}
+.flip-wrap{
+perspective:1200px;
+}
+
+.flip-card{
+width:320px;
+height:220px;
+position:relative;
+transform-style:preserve-3d;
+transition:1s;
+cursor:pointer;
+}
+
+.flip-card.open{
+transform:rotateY(180deg);
+}
+
+.flip-side{
+position:absolute;
+inset:0;
+backface-visibility:hidden;
+border-radius:24px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+box-shadow:0 25px 60px rgba(0,0,0,.16);
+}
+
+.flip-front{
+background:
+linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
+url('background.png');
+background-size:cover;
+}
+
+.flip-back{
+transform:rotateY(180deg);
+background:
+linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
+url('background.png');
+background-size:cover;
+}
+
+.flip-side h2{
+font-family:'Playfair Display';
+color:var(--gold-dark);
+margin-bottom:8px;
 }
 
 /* ---------- MAIN SITE ---------- */
 
-.site{
+#site{
 display:none;
 }
 
 header,.card{
 background:
-linear-gradient(rgba(253,236,239,.76),rgba(253,236,239,.76)),
+linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
 url('background.png');
 background-size:cover;
 }
 
 header{
-padding:70px 20px;
+padding:75px 20px;
 text-align:center;
 }
 
 .names h1{
 font-family:'Playfair Display';
-font-size:42px;
-line-height:1.2;
+font-size:44px;
+line-height:1.15;
 color:var(--gold-dark);
 }
 
 .heart{
-font-size:28px;
+font-size:30px;
 margin:8px 0;
 color:var(--gold);
 }
@@ -198,10 +248,8 @@ font-size:15px;
 }
 
 .story{
-margin-top:22px;
+margin:22px auto 0;
 max-width:760px;
-margin-left:auto;
-margin-right:auto;
 background:rgba(255,255,255,.62);
 padding:18px;
 border-radius:16px;
@@ -216,7 +264,7 @@ border-top:4px solid var(--gold);
 text-align:center;
 opacity:0;
 transform:translateY(28px);
-transition:.6s;
+transition:.7s;
 }
 
 .card.show{
@@ -224,7 +272,7 @@ opacity:1;
 transform:translateY(0);
 }
 
-h2{
+h2.section-title{
 font-family:'Playfair Display';
 font-size:30px;
 color:var(--gold-dark);
@@ -266,8 +314,16 @@ padding:16px;
 border-radius:16px;
 }
 
+.event img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:10px;
+}
+
 .event h3{
-margin-bottom:8px;
+margin-bottom:6px;
 font-size:18px;
 }
 
@@ -282,10 +338,11 @@ border-radius:28px;
 font-weight:600;
 }
 
-.music{
+.music-btn{
 position:fixed;
 top:18px;
 right:18px;
+z-index:2000;
 width:48px;
 height:48px;
 border:none;
@@ -294,7 +351,6 @@ background:var(--gold);
 color:#fff;
 font-size:18px;
 cursor:pointer;
-z-index:999;
 }
 
 footer{
@@ -304,17 +360,33 @@ font-size:14px;
 opacity:.75;
 }
 
+/* ---------- PETALS ---------- */
+
+.petal{
+position:fixed;
+top:-40px;
+pointer-events:none;
+z-index:99997;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{transform:translateY(-40px) rotate(0deg);opacity:1;}
+100%{transform:translateY(110vh) rotate(360deg);opacity:.9;}
+}
+
 @media(max-width:480px){
-.names h1{font-size:34px;}
-h2{font-size:26px;}
+.names h1{font-size:36px;}
+.flip-card{width:290px;height:205px;}
+h2.section-title{font-size:26px;}
 }
 </style>
 </head>
 
-<body>
+<body class="floral-bg">
 
-<!-- GATE -->
-<div class="gate" id="gate">
+<!-- ACCESS GATE -->
+<div id="gate">
 
 <div class="gate-card">
 
@@ -342,7 +414,7 @@ h2{font-size:26px;}
 <input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
 <input id="regCode" placeholder="Invite Code">
 
-<button onclick="registerGuest()">Register & Open</button>
+<button onclick="registerGuest()">Register & Continue</button>
 
 <div class="switch" onclick="showLogin()">Already Registered? Login</div>
 
@@ -351,13 +423,33 @@ h2{font-size:26px;}
 <div id="errorMsg"></div>
 
 </div>
+</div>
+
+<!-- INTRO FLIP CARD -->
+<div id="intro" class="floral-bg">
+
+<div class="flip-wrap">
+<div class="flip-card" id="flipCard" onclick="openInvite()">
+
+<div class="flip-side flip-front">
+<h2>💌 Wedding Invitation</h2>
+<p>Tap to Open</p>
+</div>
+
+<div class="flip-side flip-back">
+<h2>Mohan ❤️ Samiksha</h2>
+<p>7 May 2026</p>
+</div>
+
+</div>
+</div>
 
 </div>
 
 <!-- MAIN SITE -->
-<div class="site" id="site">
+<div id="site">
 
-<button class="music" onclick="toggleMusic()">🔊</button>
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
 
 <audio id="bgMusic" loop>
 <source src="music.mp3">
@@ -365,6 +457,7 @@ h2{font-size:26px;}
 
 <header>
 <div class="names">
+
 <h1>Mohan</h1>
 <div class="heart">❤️</div>
 <h1>Samiksha</h1>
@@ -375,16 +468,17 @@ h2{font-size:26px;}
 <p id="typingText"></p>
 <p style="margin-top:10px;font-weight:600;color:var(--gold-dark)">“शुभ मंगल सावधान”</p>
 </div>
+
 </div>
 </header>
 
 <section class="card">
-<h2>Save the Date 💍</h2>
+<h2 class="section-title">Save the Date 💍</h2>
 <p><strong>7 May 2026</strong></p>
 </section>
 
 <section class="card">
-<h2>Countdown ⏳</h2>
+<h2 class="section-title">Countdown ⏳</h2>
 
 <div class="countdown">
 <div class="box"><span id="days">0</span>Days</div>
@@ -392,43 +486,52 @@ h2{font-size:26px;}
 <div class="box"><span id="minutes">0</span>Min</div>
 <div class="box"><span id="seconds">0</span>Sec</div>
 </div>
-
 </section>
 
 <section class="card">
-<h2>Wedding Events 🎉</h2>
+<h2 class="section-title">Wedding Events 🎉</h2>
 
 <div class="events">
 
 <div class="event">
+<img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470" alt="">
 <h3>💍 Engagement</h3>
 <p>Time: To be announced</p>
 </div>
 
 <div class="event">
+<img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470" alt="">
 <h3>🌼 Haldi</h3>
 <p>Time: To be announced</p>
 </div>
 
 <div class="event">
+<img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470" alt="">
 <h3>🍽️ Lunch</h3>
 <p>2:00 PM – 5:30 PM</p>
 </div>
 
 <div class="event">
+<img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470" alt="">
 <h3>🔥 Wedding</h3>
 <p>7 May 2026 • 6:59 PM</p>
 </div>
 
 </div>
-
 </section>
 
 <section class="card">
-<h2>Venue 📍</h2>
+<h2 class="section-title">Venue 📍</h2>
 
 <p><strong>Hotel Amrai 69</strong></p>
-<p>Saswad - Bopdev - Pune Rd, Kondhwa, Pune</p>
+<p>Saswad - Bopdev - Pune Rd, Kondhwa, Bhivri, Maharashtra 412301</p>
+
+<iframe
+src="https://www.google.com/maps?q=Hotel+Amrai+69&output=embed"
+width="100%"
+height="250"
+style="border:0;border-radius:16px;margin-top:16px;">
+</iframe>
 
 <a class="btn" target="_blank"
 href="https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8">
@@ -438,7 +541,7 @@ View on Maps
 </section>
 
 <section class="card">
-<h2>RSVP 💌</h2>
+<h2 class="section-title">RSVP 💌</h2>
 
 <a class="btn" target="_blank"
 href="https://wa.me/919767933883?text=I will attend your wedding">
@@ -456,6 +559,8 @@ Made with ❤️ by Mohan & Samiksha
 <script>
 const API_URL="https://script.google.com/macros/s/AKfycbxBK7El1oOM5z4iTXODUMa_fH0wLps33BroXyvE8tSHgulqVZJbqmPo5ud41vcN6HLI/exec";
 const INVITE_CODE="MS-07-05-2026";
+
+let guestName="";
 
 /* ---------- HELPERS ---------- */
 
@@ -493,12 +598,12 @@ return;
 }
 
 try{
-
 const res=await fetch(`${API_URL}?action=login&phone=${phone}`);
 const data=await res.json();
 
 if(data.success){
-unlockSite(data.name || "");
+guestName=data.name || "";
+showIntro();
 }else{
 err("Number not registered. Please register first.");
 }
@@ -536,14 +641,16 @@ return;
 
 try{
 
-const url =
-`${API_URL}?action=register&name=${encodeURIComponent(name)}&phone=${phone}&code=${encodeURIComponent(code)}`;
+const url=`${API_URL}?action=register&name=${encodeURIComponent(name)}&phone=${phone}&code=${encodeURIComponent(code)}`;
 
 const res=await fetch(url);
 const data=await res.json();
 
 if(data.success){
-unlockSite(name);
+guestName=name;
+showIntro();
+}else if(data.message==="Mobile already registered"){
+err("Already registered. Please login.");
 }else{
 err(data.message || "Unable to register");
 }
@@ -554,32 +661,51 @@ err("Unable to connect. Please try again.");
 
 }
 
-/* ---------- OPEN SITE ---------- */
+/* ---------- INTRO FLOW ---------- */
 
-function unlockSite(name){
+function showIntro(){
 
-const gate=document.getElementById("gate");
+document.getElementById("gate").style.display="none";
+document.getElementById("intro").style.display="flex";
 
-gate.classList.add("fade-out");
+}
 
+function openInvite(){
+
+document.getElementById("flipCard").classList.add("open");
+
+playMusic();
 startPetals();
 
 setTimeout(()=>{
 
-gate.style.display="none";
+document.getElementById("intro").style.display="none";
+document.getElementById("site").style.display="block";
 document.body.style.overflow="auto";
 
-document.getElementById("site").style.display="block";
-
-if(name){
+if(guestName){
 document.querySelector(".subtitle").innerText=
-`Welcome ${name} & Family • With the blessings of our families`;
+`Welcome ${guestName} & Family • With the blessings of our families`;
 }
 
-playMusic();
 startTyping();
 
-},700);
+},1000);
+
+}
+
+/* ---------- MUSIC ---------- */
+
+function playMusic(){
+document.getElementById("bgMusic").play().catch(()=>{});
+}
+
+function toggleMusic(){
+
+const m=document.getElementById("bgMusic");
+
+if(m.paused) m.play();
+else m.pause();
 
 }
 
@@ -590,7 +716,6 @@ function startPetals(){
 for(let i=0;i<26;i++){
 
 const p=document.createElement("div");
-
 p.className="petal";
 p.innerHTML="🌸";
 
@@ -606,34 +731,19 @@ setTimeout(()=>p.remove(),10000);
 
 }
 
-/* ---------- MUSIC ---------- */
-
-function playMusic(){
-document.getElementById("bgMusic").play().catch(()=>{});
-}
-
-function toggleMusic(){
-
-const m=document.getElementById("bgMusic");
-
-if(m.paused){m.play();}
-else{m.pause();}
-
-}
-
 /* ---------- STORY ---------- */
 
-const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
+const storyText="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 
-let ti=0;
+let storyIndex=0;
 
 function startTyping(){
 
 const el=document.getElementById("typingText");
 
 function type(){
-if(ti<text.length){
-el.innerHTML+=text.charAt(ti++);
+if(storyIndex<storyText.length){
+el.innerHTML+=storyText.charAt(storyIndex++);
 setTimeout(type,25);
 }
 }
@@ -658,17 +768,17 @@ document.getElementById("seconds").innerText=Math.max(0,Math.floor((d%(1000*60))
 
 },1000);
 
-/* ---------- SCROLL ---------- */
+/* ---------- REVEAL ---------- */
 
 const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
 }
 });
 });
 
-document.querySelectorAll(".card").forEach(el=>observer.observe(el));
+document.querySelectorAll(".card").forEach(card=>observer.observe(card));
 </script>
 
 </body>
