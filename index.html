@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Mohan & Samiksha Wedding Invitation</title>
 
 <meta name="description" content="With blessings of our families, we warmly invite you to celebrate the wedding of Mohan & Samiksha on 7 May 2026.">
 <meta name="theme-color" content="#fdecef">
 
-<!-- OPEN GRAPH -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="💌 Mohan & Samiksha Wedding Invitation">
+<meta property="og:title" content="💌 Mohan Weds Samiksha">
 <meta property="og:description" content="Join us on 7 May 2026 ❤️">
 <meta property="og:url" content="https://mohanwedssamiksha.vercel.app/">
 <meta property="og:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="💌 Mohan & Samiksha Wedding Invitation">
+<meta name="twitter:title" content="💌 Mohan Weds Samiksha">
 <meta name="twitter:description" content="Join us on 7 May 2026 ❤️">
 <meta name="twitter:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
 
-<link rel="icon" type="image/png" href="/favicon.png">
-
+<link rel="icon" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -52,17 +48,15 @@ color:var(--text);
 overflow:hidden;
 }
 
-/* ---------- GLOBAL BG ---------- */
-
-.floral-bg{
+.floral{
 background:
-linear-gradient(rgba(253,236,239,.78),rgba(253,236,239,.78)),
+linear-gradient(rgba(253,236,239,.76),rgba(253,236,239,.76)),
 url('background.png');
 background-size:cover;
 background-position:center;
 }
 
-/* ---------- ACCESS GATE ---------- */
+/* ---------- GATE ---------- */
 
 #gate{
 position:fixed;
@@ -79,41 +73,41 @@ overflow:auto;
 width:100%;
 max-width:360px;
 background:#fff;
-border-radius:24px;
 padding:28px 22px;
-text-align:center;
+border-radius:24px;
 border-top:4px solid var(--gold);
 box-shadow:0 25px 60px rgba(0,0,0,.12);
+text-align:center;
 animation:popup .6s ease;
 }
 
 @keyframes popup{
-from{opacity:0;transform:translateY(25px) scale(.96);}
+from{opacity:0;transform:translateY(24px) scale(.96);}
 to{opacity:1;transform:translateY(0) scale(1);}
 }
 
 .gate-card h2{
 font-family:'Playfair Display';
-font-size:28px;
 color:var(--gold-dark);
+font-size:28px;
 margin-bottom:10px;
 }
 
 .gate-card p{
 font-size:14px;
-line-height:1.5;
-margin-bottom:12px;
 color:#666;
+margin-bottom:12px;
+line-height:1.5;
 }
 
 .gate-card input{
 width:100%;
 padding:13px;
 margin-bottom:12px;
-border-radius:12px;
 border:1px solid #ddd;
-font-size:15px;
+border-radius:12px;
 text-align:center;
+font-size:15px;
 outline:none;
 }
 
@@ -141,21 +135,21 @@ cursor:pointer;
 }
 
 #errorMsg{
-min-height:18px;
 margin-top:10px;
 font-size:13px;
 color:#d9534f;
+min-height:18px;
 }
 
-/* ---------- INTRO CARD ---------- */
+/* ---------- INTRO ---------- */
 
 #intro{
 position:fixed;
 inset:0;
-z-index:99998;
 display:none;
 justify-content:center;
 align-items:center;
+z-index:99998;
 padding:20px;
 }
 
@@ -179,18 +173,18 @@ transform:rotateY(180deg);
 .flip-side{
 position:absolute;
 inset:0;
-backface-visibility:hidden;
 border-radius:24px;
+backface-visibility:hidden;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 text-align:center;
 padding:20px;
-box-shadow:0 25px 60px rgba(0,0,0,.16);
+box-shadow:0 25px 60px rgba(0,0,0,.15);
 }
 
-.flip-front{
+.flip-front,.flip-back{
 background:
 linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
 url('background.png');
@@ -199,10 +193,6 @@ background-size:cover;
 
 .flip-back{
 transform:rotateY(180deg);
-background:
-linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
-url('background.png');
-background-size:cover;
 }
 
 .flip-side h2{
@@ -211,7 +201,7 @@ color:var(--gold-dark);
 margin-bottom:8px;
 }
 
-/* ---------- MAIN SITE ---------- */
+/* ---------- SITE ---------- */
 
 #site{
 display:none;
@@ -219,7 +209,7 @@ display:none;
 
 header,.card{
 background:
-linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
+linear-gradient(rgba(253,236,239,.76),rgba(253,236,239,.76)),
 url('background.png');
 background-size:cover;
 }
@@ -227,6 +217,12 @@ background-size:cover;
 header{
 padding:75px 20px;
 text-align:center;
+animation:heroEnter 1.1s ease;
+}
+
+@keyframes heroEnter{
+from{opacity:0;transform:scale(1.03);}
+to{opacity:1;transform:scale(1);}
 }
 
 .names h1{
@@ -234,6 +230,12 @@ font-family:'Playfair Display';
 font-size:44px;
 line-height:1.15;
 color:var(--gold-dark);
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 8px rgba(212,175,55,.4);}
+to{text-shadow:0 0 18px rgba(212,175,55,.9);}
 }
 
 .heart{
@@ -255,16 +257,16 @@ color:var(--gold-dark);
 margin-bottom:4px;
 }
 
-.blessing-line{
+.bless{
 display:block;
 }
 
 .story{
 margin:22px auto 0;
 max-width:760px;
-background:rgba(255,255,255,.62);
 padding:18px;
 border-radius:16px;
+background:rgba(255,255,255,.62);
 }
 
 .card{
@@ -284,7 +286,7 @@ opacity:1;
 transform:translateY(0);
 }
 
-h2.section-title{
+.section-title{
 font-family:'Playfair Display';
 font-size:30px;
 color:var(--gold-dark);
@@ -334,11 +336,6 @@ border-radius:14px;
 margin-bottom:10px;
 }
 
-.event h3{
-margin-bottom:6px;
-font-size:18px;
-}
-
 .btn{
 display:inline-block;
 margin-top:16px;
@@ -350,19 +347,27 @@ border-radius:28px;
 font-weight:600;
 }
 
-.music-btn{
+.control-wrap{
 position:fixed;
-top:18px;
-right:18px;
-z-index:2000;
-width:48px;
-height:48px;
+top:16px;
+right:16px;
+z-index:999;
+display:flex;
+gap:10px;
+flex-direction:column;
+align-items:flex-end;
+}
+
+.control-btn{
 border:none;
-border-radius:50%;
 background:var(--gold);
 color:#fff;
-font-size:18px;
+padding:11px 16px;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
 cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 footer{
@@ -390,46 +395,35 @@ animation:fall linear forwards;
 @media(max-width:480px){
 .names h1{font-size:36px;}
 .flip-card{width:290px;height:205px;}
-h2.section-title{font-size:26px;}
+.section-title{font-size:26px;}
+.control-btn{font-size:13px;padding:10px 14px;}
 }
 </style>
 </head>
 
-<body class="floral-bg">
+<body class="floral">
 
-<!-- ACCESS GATE -->
+<!-- GATE -->
 <div id="gate">
 
 <div class="gate-card">
 
-<!-- LOGIN -->
 <div id="loginBox">
-
 <h2>Welcome</h2>
 <p>Enter your registered mobile number</p>
-
 <input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
-
 <button onclick="loginGuest()">Open Invitation</button>
-
 <div class="switch" onclick="showRegister()">New Guest? Register Here</div>
-
 </div>
 
-<!-- REGISTER -->
-<div id="registerBox" style="display:none">
-
+<div id="registerBox" style="display:none;">
 <h2>Register</h2>
 <p>Enter details and invite code</p>
-
 <input id="regName" placeholder="Full Name">
 <input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
 <input id="regCode" placeholder="Invite Code">
-
 <button onclick="registerGuest()">Register & Continue</button>
-
 <div class="switch" onclick="showLogin()">Already Registered? Login</div>
-
 </div>
 
 <div id="errorMsg"></div>
@@ -437,8 +431,8 @@ h2.section-title{font-size:26px;}
 </div>
 </div>
 
-<!-- INTRO FLIP CARD -->
-<div id="intro" class="floral-bg">
+<!-- INTRO -->
+<div id="intro" class="floral">
 
 <div class="flip-wrap">
 <div class="flip-card" id="flipCard" onclick="openInvite()">
@@ -458,10 +452,13 @@ h2.section-title{font-size:26px;}
 
 </div>
 
-<!-- MAIN SITE -->
+<!-- SITE -->
 <div id="site">
 
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
+<div class="control-wrap">
+<button class="control-btn" id="musicBtn" onclick="toggleMusic()">🔊 Music On</button>
+<button class="control-btn" onclick="logoutGuest()">↩ Logout</button>
+</div>
 
 <audio id="bgMusic" loop>
 <source src="music.mp3">
@@ -469,14 +466,13 @@ h2.section-title{font-size:26px;}
 
 <header>
 <div class="names">
-
 <h1>Mohan</h1>
 <div class="heart">❤️</div>
 <h1>Samiksha</h1>
 
 <p class="subtitle">
 <span id="welcomeText"></span>
-<span class="blessing-line">With the blessings of our families</span>
+<span class="bless">With the blessings of our families</span>
 </p>
 
 <div class="story">
@@ -494,7 +490,6 @@ h2.section-title{font-size:26px;}
 
 <section class="card">
 <h2 class="section-title">Countdown ⏳</h2>
-
 <div class="countdown">
 <div class="box"><span id="days">0</span>Days</div>
 <div class="box"><span id="hours">0</span>Hours</div>
@@ -509,27 +504,27 @@ h2.section-title{font-size:26px;}
 <div class="events">
 
 <div class="event">
-<img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470" alt="">
+<img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
 <h3>💍 Engagement</h3>
 <p>10:00 AM</p>
 </div>
 
 <div class="event">
-<img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470" alt="">
+<img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
 <h3>🌼 Haldi</h3>
 <p>11:00 AM</p>
 </div>
 
 <div class="event">
-<img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470" alt="">
+<img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
 <h3>🍽️ Bhojan</h3>
 <p>1:00 PM – 4:00 PM</p>
 </div>
 
 <div class="event">
-<img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470" alt="">
+<img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
 <h3>🔥 Wedding</h3>
-<p>7 May 2026 • 2:31 PM</p>
+<p><strong>Muhurat: 2:31 PM</strong></p>
 </div>
 
 </div>
@@ -537,7 +532,6 @@ h2.section-title{font-size:26px;}
 
 <section class="card">
 <h2 class="section-title">Venue 📍</h2>
-
 <p><strong>Hotel Amrai 69</strong></p>
 <p>Saswad - Bopdev - Pune Rd, Kondhwa, Bhivri, Maharashtra 412301</p>
 
@@ -552,7 +546,6 @@ style="border:0;border-radius:16px;margin-top:16px;">
 href="https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8">
 View on Maps
 </a>
-
 </section>
 
 <section class="card">
@@ -562,7 +555,6 @@ View on Maps
 href="https://wa.me/919767933883?text=I will attend your wedding">
 Confirm on WhatsApp
 </a>
-
 </section>
 
 <footer>
@@ -576,6 +568,7 @@ const API_URL="https://script.google.com/macros/s/AKfycbxBK7El1oOM5z4iTXODUMa_fH
 const INVITE_CODE="MS-07-05-2026";
 
 let guestName="";
+let musicOn=true;
 
 /* ---------- HELPERS ---------- */
 
@@ -618,15 +611,15 @@ const data=await res.json();
 
 if(data.success){
 guestName=data.name || "";
+localStorage.setItem("guestName",guestName);
+localStorage.setItem("inviteAccess","yes");
 showIntro();
 }else{
 err("Number not registered. Please register first.");
 }
-
 }catch(e){
 err("Unable to connect. Please try again.");
 }
-
 }
 
 /* ---------- REGISTER ---------- */
@@ -663,6 +656,8 @@ const data=await res.json();
 
 if(data.success){
 guestName=name;
+localStorage.setItem("guestName",guestName);
+localStorage.setItem("inviteAccess","yes");
 showIntro();
 }else if(data.message==="Mobile already registered"){
 err("Already registered. Please login.");
@@ -676,13 +671,11 @@ err("Unable to connect. Please try again.");
 
 }
 
-/* ---------- INTRO FLOW ---------- */
+/* ---------- INTRO ---------- */
 
 function showIntro(){
-
 document.getElementById("gate").style.display="none";
 document.getElementById("intro").style.display="flex";
-
 }
 
 function openInvite(){
@@ -693,13 +686,12 @@ playMusic();
 startPetals();
 
 setTimeout(()=>{
-
 document.getElementById("intro").style.display="none";
 document.getElementById("site").style.display="block";
 document.body.style.overflow="auto";
 
 if(guestName){
-document.querySelector(".subtitle").innerText=
+document.getElementById("welcomeText").innerText=
 `Welcome ${guestName} & Family`;
 }
 
@@ -712,23 +704,51 @@ startTyping();
 /* ---------- MUSIC ---------- */
 
 function playMusic(){
-document.getElementById("bgMusic").play().catch(()=>{});
+const m=document.getElementById("bgMusic");
+m.play().catch(()=>{});
+musicOn=true;
+updateMusicBtn();
 }
 
 function toggleMusic(){
 
 const m=document.getElementById("bgMusic");
 
-if(m.paused) m.play();
-else m.pause();
+if(m.paused){
+m.play();
+musicOn=true;
+}else{
+m.pause();
+musicOn=false;
+}
 
+updateMusicBtn();
+}
+
+function updateMusicBtn(){
+
+const btn=document.getElementById("musicBtn");
+
+if(musicOn){
+btn.innerText="🔊 Music On";
+}else{
+btn.innerText="🔇 Music Off";
+}
+
+}
+
+/* ---------- LOGOUT ---------- */
+
+function logoutGuest(){
+localStorage.clear();
+location.reload();
 }
 
 /* ---------- PETALS ---------- */
 
 function startPetals(){
 
-for(let i=0;i<26;i++){
+for(let i=0;i<28;i++){
 
 const p=document.createElement("div");
 p.className="petal";
@@ -743,33 +763,53 @@ document.body.appendChild(p);
 setTimeout(()=>p.remove(),10000);
 
 }
-
 }
 
 /* ---------- STORY ---------- */
 
-const storyText="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
+const story="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 
-let storyIndex=0;
+let si=0;
 
 function startTyping(){
 
 const el=document.getElementById("typingText");
 
 function type(){
-if(storyIndex<storyText.length){
-el.innerHTML+=storyText.charAt(storyIndex++);
+if(si<story.length){
+el.innerHTML+=story.charAt(si++);
 setTimeout(type,25);
 }
 }
 
 type();
-
 }
+
+/* ---------- AUTO LOGIN ---------- */
+
+window.onload=function(){
+
+if(localStorage.getItem("inviteAccess")==="yes"){
+
+guestName=localStorage.getItem("guestName") || "";
+
+document.getElementById("gate").style.display="none";
+document.getElementById("site").style.display="block";
+document.body.style.overflow="auto";
+
+if(guestName){
+document.getElementById("welcomeText").innerText=
+`Welcome ${guestName} & Family`;
+}
+
+playMusic();
+startTyping();
+}
+};
 
 /* ---------- COUNTDOWN ---------- */
 
-const weddingDate=new Date("May 7, 2026 18:59:00").getTime();
+const weddingDate=new Date("May 7, 2026 14:31:00").getTime();
 
 setInterval(()=>{
 
@@ -786,14 +826,14 @@ document.getElementById("seconds").innerText=Math.max(0,Math.floor((d%(1000*60))
 /* ---------- REVEAL ---------- */
 
 const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add("show");
 }
 });
 });
 
-document.querySelectorAll(".card").forEach(card=>observer.observe(card));
+document.querySelectorAll(".card").forEach(el=>observer.observe(el));
 </script>
 
 </body>
