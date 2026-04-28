@@ -31,6 +31,12 @@
 --text:#333;
 }
 
+
+button{
+touch-action:manipulation;
+-webkit-tap-highlight-color:transparent;
+}
+
 *{
 margin:0;
 padding:0;
@@ -412,7 +418,7 @@ animation:fall linear forwards;
 <h2>Welcome</h2>
 <p>Enter your registered mobile number</p>
 <input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
-<button onclick="loginGuest()">Open Invitation</button>
+<button type="button" onclick="loginGuest()">Open Invitation</button>
 <div class="switch" onclick="showRegister()">New Guest? Register Here</div>
 </div>
 
@@ -422,7 +428,7 @@ animation:fall linear forwards;
 <input id="regName" placeholder="Full Name">
 <input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
 <input id="regCode" placeholder="Invite Code">
-<button onclick="registerGuest()">Register & Continue</button>
+<button type ="button" onclick="registerGuest()">Register & Continue</button>
 <div class="switch" onclick="showLogin()">Already Registered? Login</div>
 </div>
 
@@ -593,7 +599,7 @@ clearErr();
 /* ---------- LOGIN ---------- */
 
 async function loginGuest(){
-
+document.activeElement.blur();
 clearErr();
 
 const phone=document.getElementById("loginPhone").value.trim();
@@ -623,7 +629,7 @@ err("Unable to connect. Please try again.");
 /* ---------- REGISTER ---------- */
 
 async function registerGuest(){
-
+document.activeElement.blur();
 clearErr();
 
 const name=document.getElementById("regName").value.trim();
