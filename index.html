@@ -417,7 +417,7 @@ animation:fall linear forwards;
 <div id="loginBox">
 <h2>Welcome</h2>
 <p>Enter your registered mobile number</p>
-<input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
+<input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric" oninput="err('')">
 <button type="button" onclick="loginGuest()">Open Invitation</button>
 <div class="switch" onclick="showRegister()">New Guest? Register Here</div>
 </div>
@@ -425,9 +425,9 @@ animation:fall linear forwards;
 <div id="registerBox" style="display:none;">
 <h2>Register</h2>
 <p>Enter details and invite code</p>
-<input id="regName" placeholder="Full Name">
-<input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
-<input id="regCode" placeholder="Invite Code">
+<input id="regName" placeholder="Full Name" oninput="err('')">
+<input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric" oninput="err('')">
+<input id="regCode" placeholder="Invite Code" oninput="err('')">
 <button type ="button" onclick="registerGuest()">Register & Continue</button>
 <div class="switch" onclick="showLogin()">Already Registered? Login</div>
 </div>
@@ -600,6 +600,7 @@ clearErr();
 
 async function loginGuest(){
 document.activeElement.blur();
+err("");
 clearErr();
 
 const phone=document.getElementById("loginPhone").value.trim();
@@ -630,6 +631,7 @@ err("Unable to connect. Please try again.");
 
 async function registerGuest(){
 document.activeElement.blur();
+err("");
 clearErr();
 
 const name=document.getElementById("regName").value.trim();
