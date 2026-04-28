@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Mohan & Samiksha Wedding Invitation</title>
 
-<meta name="description" content="With blessings of our families, we warmly invite you to celebrate the wedding of Mohan & Samiksha on 7 May 2026." />
+<meta name="description" content="With blessings of our families, we warmly invite you to celebrate the wedding of Mohan & Samiksha on 7 May 2026.">
 <meta name="theme-color" content="#fdecef">
 
 <!-- OPEN GRAPH -->
@@ -15,17 +15,13 @@
 <meta property="og:description" content="Join us on 7 May 2026 ❤️">
 <meta property="og:url" content="https://mohanwedssamiksha.vercel.app/">
 <meta property="og:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
-<meta property="og:image:secure_url" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="💌 Mohan & Samiksha Wedding Invitation">
 <meta name="twitter:description" content="Join us on 7 May 2026 ❤️">
 <meta name="twitter:image" content="https://mohanwedssamiksha.vercel.app/preview-card.jpg">
 
-<link rel="icon" type="image/png" href="/favicon.png">
-
+<link rel="icon" href="/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -49,7 +45,7 @@ color:var(--text);
 overflow:hidden;
 }
 
-/* ---------------- GATE ---------------- */
+/* ---------- ACCESS GATE ---------- */
 
 .gate{
 position:fixed;
@@ -64,6 +60,7 @@ linear-gradient(rgba(253,236,239,.92),rgba(253,236,239,.92)),
 url('background.png');
 background-size:cover;
 background-position:center;
+overflow:auto;
 }
 
 .gate-card{
@@ -71,15 +68,15 @@ width:100%;
 max-width:360px;
 background:#fff;
 border-radius:24px;
-padding:30px 24px;
+padding:28px 22px;
 text-align:center;
 border-top:4px solid var(--gold);
 box-shadow:0 25px 60px rgba(0,0,0,.12);
-animation:pop .6s ease;
+animation:popup .6s ease;
 }
 
-@keyframes pop{
-from{opacity:0;transform:translateY(25px) scale(.96);}
+@keyframes popup{
+from{opacity:0;transform:translateY(20px) scale(.96);}
 to{opacity:1;transform:translateY(0) scale(1);}
 }
 
@@ -93,16 +90,16 @@ margin-bottom:10px;
 .gate-card p{
 font-size:14px;
 line-height:1.5;
-margin-bottom:14px;
+margin-bottom:12px;
 color:#666;
 }
 
 .gate-card input{
 width:100%;
 padding:13px;
-border-radius:12px;
-border:1px solid #ddd;
 margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:12px;
 font-size:15px;
 text-align:center;
 outline:none;
@@ -116,7 +113,7 @@ border-color:var(--gold);
 width:100%;
 padding:13px;
 border:none;
-border-radius:30px;
+border-radius:28px;
 background:var(--gold);
 color:#fff;
 font-weight:600;
@@ -124,39 +121,38 @@ font-size:15px;
 cursor:pointer;
 }
 
-.switch-link{
+.switch{
 margin-top:12px;
-display:inline-block;
 font-size:13px;
 color:var(--gold-dark);
 cursor:pointer;
 }
 
 #errorMsg{
+min-height:18px;
 margin-top:10px;
 font-size:13px;
 color:#d9534f;
-min-height:18px;
 }
 
 .fade-out{
-animation:fadeGate .8s ease forwards;
+animation:fadeOut .8s ease forwards;
 }
 
-@keyframes fadeGate{
+@keyframes fadeOut{
 to{
 opacity:0;
 transform:scale(1.05);
 }
 }
 
-/* ------------- PETALS ------------- */
+/* ---------- PETALS ---------- */
 
 .petal{
 position:fixed;
 top:-40px;
-z-index:9999;
 pointer-events:none;
+z-index:9999;
 animation:fall linear forwards;
 }
 
@@ -165,7 +161,7 @@ animation:fall linear forwards;
 100%{transform:translateY(110vh) rotate(360deg);opacity:.9;}
 }
 
-/* ------------- SITE ------------- */
+/* ---------- MAIN SITE ---------- */
 
 .site{
 display:none;
@@ -186,8 +182,8 @@ text-align:center;
 .names h1{
 font-family:'Playfair Display';
 font-size:42px;
-color:var(--gold-dark);
 line-height:1.2;
+color:var(--gold-dark);
 }
 
 .heart{
@@ -203,15 +199,15 @@ font-size:15px;
 
 .story{
 margin-top:22px;
-background:rgba(255,255,255,.6);
-padding:18px;
-border-radius:16px;
-max-width:700px;
+max-width:760px;
 margin-left:auto;
 margin-right:auto;
+background:rgba(255,255,255,.62);
+padding:18px;
+border-radius:16px;
 }
 
-section.card{
+.card{
 max-width:900px;
 margin:30px auto;
 padding:28px 20px;
@@ -223,34 +219,16 @@ transform:translateY(28px);
 transition:.6s;
 }
 
-section.card.show{
+.card.show{
 opacity:1;
 transform:translateY(0);
 }
 
 h2{
 font-family:'Playfair Display';
-color:var(--gold-dark);
 font-size:30px;
+color:var(--gold-dark);
 margin-bottom:12px;
-}
-
-.events{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:18px;
-margin-top:20px;
-}
-
-.event{
-background:rgba(255,255,255,.72);
-padding:16px;
-border-radius:16px;
-}
-
-.event h3{
-margin-bottom:8px;
-font-size:18px;
 }
 
 .countdown{
@@ -258,7 +236,7 @@ display:flex;
 justify-content:center;
 gap:14px;
 flex-wrap:wrap;
-margin-top:15px;
+margin-top:14px;
 }
 
 .box{
@@ -275,15 +253,48 @@ font-weight:700;
 color:var(--gold-dark);
 }
 
-.map-btn,.rsvp-btn{
+.events{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+margin-top:18px;
+}
+
+.event{
+background:rgba(255,255,255,.72);
+padding:16px;
+border-radius:16px;
+}
+
+.event h3{
+margin-bottom:8px;
+font-size:18px;
+}
+
+.btn{
 display:inline-block;
 margin-top:16px;
 padding:12px 22px;
-border-radius:28px;
 background:var(--gold);
 color:#fff;
 text-decoration:none;
+border-radius:28px;
 font-weight:600;
+}
+
+.music{
+position:fixed;
+top:18px;
+right:18px;
+width:48px;
+height:48px;
+border:none;
+border-radius:50%;
+background:var(--gold);
+color:#fff;
+font-size:18px;
+cursor:pointer;
+z-index:999;
 }
 
 footer{
@@ -293,73 +304,60 @@ font-size:14px;
 opacity:.75;
 }
 
-.music-btn{
-position:fixed;
-right:18px;
-top:18px;
-z-index:2000;
-border:none;
-background:var(--gold);
-color:#fff;
-border-radius:50%;
-width:48px;
-height:48px;
-font-size:18px;
-cursor:pointer;
-}
-
 @media(max-width:480px){
 .names h1{font-size:34px;}
 h2{font-size:26px;}
 }
 </style>
 </head>
+
 <body>
 
-<!-- ACCESS GATE -->
+<!-- GATE -->
 <div class="gate" id="gate">
 
 <div class="gate-card">
 
 <!-- LOGIN -->
-<div id="loginView">
+<div id="loginBox">
 
 <h2>Welcome</h2>
-<p>Enter your registered mobile number to view the invitation</p>
+<p>Enter your registered mobile number</p>
 
 <input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
 
 <button onclick="loginGuest()">Open Invitation</button>
 
-<div class="switch-link" onclick="showRegister()">New Guest? Register here</div>
+<div class="switch" onclick="showRegister()">New Guest? Register Here</div>
 
 </div>
 
 <!-- REGISTER -->
-<div id="registerView" style="display:none">
+<div id="registerBox" style="display:none">
 
 <h2>Register</h2>
-<p>Enter details and invite code to access invitation</p>
+<p>Enter details and invite code</p>
 
 <input id="regName" placeholder="Full Name">
 <input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric">
-<input id="inviteCode" placeholder="Invite Code">
+<input id="regCode" placeholder="Invite Code">
 
 <button onclick="registerGuest()">Register & Open</button>
 
-<div class="switch-link" onclick="showLogin()">Already registered? Login</div>
+<div class="switch" onclick="showLogin()">Already Registered? Login</div>
 
 </div>
 
 <div id="errorMsg"></div>
 
 </div>
+
 </div>
 
 <!-- MAIN SITE -->
 <div class="site" id="site">
 
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
+<button class="music" onclick="toggleMusic()">🔊</button>
 
 <audio id="bgMusic" loop>
 <source src="music.mp3">
@@ -394,6 +392,7 @@ h2{font-size:26px;}
 <div class="box"><span id="minutes">0</span>Min</div>
 <div class="box"><span id="seconds">0</span>Sec</div>
 </div>
+
 </section>
 
 <section class="card">
@@ -422,24 +421,26 @@ h2{font-size:26px;}
 </div>
 
 </div>
+
 </section>
 
 <section class="card">
 <h2>Venue 📍</h2>
+
 <p><strong>Hotel Amrai 69</strong></p>
 <p>Saswad - Bopdev - Pune Rd, Kondhwa, Pune</p>
 
-<a class="map-btn" target="_blank"
+<a class="btn" target="_blank"
 href="https://maps.app.goo.gl/VuSdFy33Tb2bmzQH8">
-Open Maps
+View on Maps
 </a>
+
 </section>
 
 <section class="card">
 <h2>RSVP 💌</h2>
 
-<a class="rsvp-btn"
-target="_blank"
+<a class="btn" target="_blank"
 href="https://wa.me/919767933883?text=I will attend your wedding">
 Confirm on WhatsApp
 </a>
@@ -454,40 +455,40 @@ Made with ❤️ by Mohan & Samiksha
 
 <script>
 const API_URL="https://script.google.com/macros/s/AKfycbxBK7El1oOM5z4iTXODUMa_fH0wLps33BroXyvE8tSHgulqVZJbqmPo5ud41vcN6HLI/exec";
-const FINAL_CODE="MS-07-05-2026";
+const INVITE_CODE="MS-07-05-2026";
 
-/* ---------- VIEW SWITCH ---------- */
+/* ---------- HELPERS ---------- */
+
+function err(msg){
+document.getElementById("errorMsg").innerText=msg;
+}
+
+function clearErr(){
+err("");
+}
 
 function showRegister(){
-document.getElementById("loginView").style.display="none";
-document.getElementById("registerView").style.display="block";
-clearError();
+document.getElementById("loginBox").style.display="none";
+document.getElementById("registerBox").style.display="block";
+clearErr();
 }
 
 function showLogin(){
-document.getElementById("registerView").style.display="none";
-document.getElementById("loginView").style.display="block";
-clearError();
-}
-
-function clearError(){
-document.getElementById("errorMsg").innerText="";
-}
-
-function setError(msg){
-document.getElementById("errorMsg").innerText=msg;
+document.getElementById("registerBox").style.display="none";
+document.getElementById("loginBox").style.display="block";
+clearErr();
 }
 
 /* ---------- LOGIN ---------- */
 
 async function loginGuest(){
 
-clearError();
+clearErr();
 
 const phone=document.getElementById("loginPhone").value.trim();
 
 if(!/^[6-9][0-9]{9}$/.test(phone)){
-setError("Enter valid 10-digit mobile number");
+err("Enter valid 10-digit mobile number");
 return;
 }
 
@@ -499,11 +500,11 @@ const data=await res.json();
 if(data.success){
 unlockSite(data.name || "");
 }else{
-setError("Number not registered. Please register first.");
+err("Number not registered. Please register first.");
 }
 
 }catch(e){
-setError("Unable to connect. Please try again.");
+err("Unable to connect. Please try again.");
 }
 
 }
@@ -512,50 +513,48 @@ setError("Unable to connect. Please try again.");
 
 async function registerGuest(){
 
-clearError();
+clearErr();
 
 const name=document.getElementById("regName").value.trim();
 const phone=document.getElementById("regPhone").value.trim();
-const code=document.getElementById("inviteCode").value.trim();
+const code=document.getElementById("regCode").value.trim();
 
 if(name.length<2){
-setError("Enter full name");
+err("Enter full name");
 return;
 }
 
 if(!/^[6-9][0-9]{9}$/.test(phone)){
-setError("Enter valid 10-digit mobile number");
+err("Enter valid 10-digit mobile number");
 return;
 }
 
-if(code!==FINAL_CODE){
-setError("Invalid invite code");
+if(code!==INVITE_CODE){
+err("Invalid invite code");
 return;
 }
 
 try{
 
-const res=await fetch(API_URL,{
-method:"POST",
-headers:{ "Content-Type":"application/json" },
-body:JSON.stringify({name,phone,code})
-});
+const url =
+`${API_URL}?action=register&name=${encodeURIComponent(name)}&phone=${phone}&code=${encodeURIComponent(code)}`;
 
+const res=await fetch(url);
 const data=await res.json();
 
 if(data.success){
 unlockSite(name);
 }else{
-setError(data.message || "Unable to register");
+err(data.message || "Unable to register");
 }
 
 }catch(e){
-setError("Unable to connect. Please try again.");
+err("Unable to connect. Please try again.");
 }
 
 }
 
-/* ---------- UNLOCK ---------- */
+/* ---------- OPEN SITE ---------- */
 
 function unlockSite(name){
 
@@ -577,8 +576,8 @@ document.querySelector(".subtitle").innerText=
 `Welcome ${name} & Family • With the blessings of our families`;
 }
 
-startTyping();
 playMusic();
+startTyping();
 
 },700);
 
@@ -591,6 +590,7 @@ function startPetals(){
 for(let i=0;i<26;i++){
 
 const p=document.createElement("div");
+
 p.className="petal";
 p.innerHTML="🌸";
 
@@ -609,17 +609,19 @@ setTimeout(()=>p.remove(),10000);
 /* ---------- MUSIC ---------- */
 
 function playMusic(){
-const m=document.getElementById("bgMusic");
-m.play().catch(()=>{});
+document.getElementById("bgMusic").play().catch(()=>{});
 }
 
 function toggleMusic(){
+
 const m=document.getElementById("bgMusic");
+
 if(m.paused){m.play();}
 else{m.pause();}
+
 }
 
-/* ---------- TYPING ---------- */
+/* ---------- STORY ---------- */
 
 const text="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
 
@@ -656,7 +658,7 @@ document.getElementById("seconds").innerText=Math.max(0,Math.floor((d%(1000*60))
 
 },1000);
 
-/* ---------- SCROLL ANIMATION ---------- */
+/* ---------- SCROLL ---------- */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
