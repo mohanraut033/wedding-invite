@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>Mohan & Samiksha Wedding Invitation</title>
+<title>Mohan Weds Samiksha</title>
 
 <meta name="description" content="With blessings of our families, we warmly invite you to celebrate the wedding of Mohan & Samiksha on 7 May 2026.">
 <meta name="theme-color" content="#fdecef">
@@ -31,12 +31,6 @@
 --text:#333;
 }
 
-
-button{
-touch-action:manipulation;
--webkit-tap-highlight-color:transparent;
-}
-
 *{
 margin:0;
 padding:0;
@@ -54,7 +48,7 @@ color:var(--text);
 overflow:hidden;
 }
 
-.floral{
+.bg{
 background:
 linear-gradient(rgba(253,236,239,.76),rgba(253,236,239,.76)),
 url('background.png');
@@ -62,9 +56,9 @@ background-size:cover;
 background-position:center;
 }
 
-/* ---------- GATE ---------- */
+/* INTRO */
 
-#gate{
+#intro{
 position:fixed;
 inset:0;
 z-index:99999;
@@ -72,96 +66,9 @@ display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
-overflow:auto;
 }
 
-.gate-card{
-width:100%;
-max-width:360px;
-background:#fff;
-padding:28px 22px;
-border-radius:24px;
-border-top:4px solid var(--gold);
-box-shadow:0 25px 60px rgba(0,0,0,.12);
-text-align:center;
-animation:popup .6s ease;
-}
-
-@keyframes popup{
-from{opacity:0;transform:translateY(24px) scale(.96);}
-to{opacity:1;transform:translateY(0) scale(1);}
-}
-
-.gate-card h2{
-font-family:'Playfair Display';
-color:var(--gold-dark);
-font-size:28px;
-margin-bottom:10px;
-}
-
-.gate-card p{
-font-size:14px;
-color:#666;
-margin-bottom:12px;
-line-height:1.5;
-}
-
-.gate-card input{
-width:100%;
-padding:13px;
-margin-bottom:12px;
-border:1px solid #ddd;
-border-radius:12px;
-text-align:center;
-font-size:15px;
-outline:none;
-}
-
-.gate-card input:focus{
-border-color:var(--gold);
-}
-
-.gate-card button{
-width:100%;
-padding:13px;
-border:none;
-border-radius:28px;
-background:var(--gold);
-color:#fff;
-font-weight:600;
-font-size:15px;
-cursor:pointer;
-}
-
-.switch{
-margin-top:12px;
-font-size:13px;
-color:var(--gold-dark);
-cursor:pointer;
-}
-
-#errorMsg{
-margin-top:10px;
-font-size:13px;
-color:#d9534f;
-min-height:18px;
-}
-
-/* ---------- INTRO ---------- */
-
-#intro{
-position:fixed;
-inset:0;
-display:none;
-justify-content:center;
-align-items:center;
-z-index:99998;
-padding:20px;
-}
-
-.flip-wrap{
-perspective:1200px;
-}
+.flip-wrap{perspective:1200px;}
 
 .flip-card{
 width:320px;
@@ -192,14 +99,12 @@ box-shadow:0 25px 60px rgba(0,0,0,.15);
 
 .flip-front,.flip-back{
 background:
-linear-gradient(rgba(253,236,239,.75),rgba(253,236,239,.75)),
+linear-gradient(rgba(253,236,239,.76),rgba(253,236,239,.76)),
 url('background.png');
 background-size:cover;
 }
 
-.flip-back{
-transform:rotateY(180deg);
-}
+.flip-back{transform:rotateY(180deg);}
 
 .flip-side h2{
 font-family:'Playfair Display';
@@ -207,7 +112,7 @@ color:var(--gold-dark);
 margin-bottom:8px;
 }
 
-/* ---------- SITE ---------- */
+/* SITE */
 
 #site{
 display:none;
@@ -223,25 +128,20 @@ background-size:cover;
 header{
 padding:75px 20px;
 text-align:center;
-animation:heroEnter 1.1s ease;
+animation:fadeIn 1s ease;
 }
 
-@keyframes heroEnter{
-from{opacity:0;transform:scale(1.03);}
-to{opacity:1;transform:scale(1);}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(15px);}
+to{opacity:1;transform:translateY(0);}
 }
 
 .names h1{
 font-family:'Playfair Display';
 font-size:44px;
-line-height:1.15;
 color:var(--gold-dark);
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 8px rgba(212,175,55,.4);}
-to{text-shadow:0 0 18px rgba(212,175,55,.9);}
+line-height:1.15;
+text-shadow:0 0 10px rgba(212,175,55,.2);
 }
 
 .heart{
@@ -256,17 +156,6 @@ font-size:15px;
 line-height:1.7;
 }
 
-#welcomeText{
-display:block;
-font-weight:600;
-color:var(--gold-dark);
-margin-bottom:4px;
-}
-
-.bless{
-display:block;
-}
-
 .story{
 margin:22px auto 0;
 max-width:760px;
@@ -276,7 +165,7 @@ background:rgba(255,255,255,.62);
 }
 
 .card{
-max-width:900px;
+max-width:950px;
 margin:30px auto;
 padding:28px 20px;
 border-radius:22px;
@@ -296,7 +185,7 @@ transform:translateY(0);
 font-family:'Playfair Display';
 font-size:30px;
 color:var(--gold-dark);
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 .countdown{
@@ -304,7 +193,7 @@ display:flex;
 justify-content:center;
 gap:14px;
 flex-wrap:wrap;
-margin-top:14px;
+margin-top:10px;
 }
 
 .box{
@@ -321,27 +210,6 @@ font-weight:700;
 color:var(--gold-dark);
 }
 
-.events{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:16px;
-margin-top:18px;
-}
-
-.event{
-background:rgba(255,255,255,.72);
-padding:16px;
-border-radius:16px;
-}
-
-.event img{
-width:100%;
-height:170px;
-object-fit:cover;
-border-radius:14px;
-margin-bottom:10px;
-}
-
 .btn{
 display:inline-block;
 margin-top:16px;
@@ -349,25 +217,26 @@ padding:12px 22px;
 background:var(--gold);
 color:#fff;
 text-decoration:none;
+border:none;
 border-radius:28px;
 font-weight:600;
+cursor:pointer;
 }
 
-.control-wrap{
+.controls{
 position:fixed;
 top:16px;
 right:16px;
 z-index:999;
 display:flex;
-gap:10px;
 flex-direction:column;
-align-items:flex-end;
+gap:10px;
 }
 
 .control-btn{
-border:none;
 background:var(--gold);
 color:#fff;
+border:none;
 padding:11px 16px;
 border-radius:30px;
 font-size:14px;
@@ -376,14 +245,92 @@ cursor:pointer;
 box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
-footer{
-text-align:center;
-padding:35px 20px;
-font-size:14px;
-opacity:.75;
+/* IMAGE TIMELINE */
+
+.img-timeline{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+margin-top:18px;
 }
 
-/* ---------- PETALS ---------- */
+.journey-item{
+background:rgba(255,255,255,.72);
+padding:16px;
+border-radius:18px;
+text-align:center;
+}
+
+.journey-time{
+font-weight:700;
+color:var(--gold-dark);
+margin-bottom:10px;
+font-size:14px;
+}
+
+.journey-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:14px;
+margin-bottom:10px;
+}
+
+.journey-item h3{
+margin-bottom:6px;
+font-size:17px;
+}
+
+.journey-item p{
+font-size:14px;
+line-height:1.5;
+}
+
+/* RSVP MODAL */
+
+#rsvpModal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.modal-box{
+width:100%;
+max-width:380px;
+background:#fff;
+padding:26px 22px;
+border-radius:22px;
+text-align:center;
+}
+
+.modal-box h2{
+font-family:'Playfair Display';
+color:var(--gold-dark);
+margin-bottom:10px;
+}
+
+.modal-box input,.modal-box select{
+width:100%;
+padding:13px;
+margin-bottom:12px;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:15px;
+}
+
+#rsvpMsg{
+font-size:13px;
+min-height:18px;
+margin-top:8px;
+color:#d9534f;
+}
+
+/* petals */
 
 .petal{
 position:fixed;
@@ -394,52 +341,29 @@ animation:fall linear forwards;
 }
 
 @keyframes fall{
-0%{transform:translateY(-40px) rotate(0deg);opacity:1;}
-100%{transform:translateY(110vh) rotate(360deg);opacity:.9;}
+0%{transform:translateY(-40px) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+footer{
+text-align:center;
+padding:35px 20px;
+font-size:14px;
+opacity:.75;
 }
 
 @media(max-width:480px){
 .names h1{font-size:36px;}
 .flip-card{width:290px;height:205px;}
 .section-title{font-size:26px;}
-.control-btn{font-size:13px;padding:10px 14px;}
 }
 </style>
 </head>
 
-<body class="floral">
-
-<!-- GATE -->
-<div id="gate">
-
-<div class="gate-card">
-
-<div id="loginBox">
-<h2>Welcome</h2>
-<p>Enter your registered mobile number</p>
-<input id="loginPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric" oninput="err('')">
-<button type="button" onclick="loginGuest()">Open Invitation</button>
-<div class="switch" onclick="showRegister()">New Guest? Register Here</div>
-</div>
-
-<div id="registerBox" style="display:none;">
-<h2>Register</h2>
-<p>Enter details and invite code</p>
-<input id="regName" placeholder="Full Name" oninput="err('')">
-<input id="regPhone" maxlength="10" placeholder="Mobile Number" inputmode="numeric" oninput="err('')">
-<input id="regCode" placeholder="Invite Code" oninput="err('')">
-<button type ="button" onclick="registerGuest()">Register & Continue</button>
-<div class="switch" onclick="showLogin()">Already Registered? Login</div>
-</div>
-
-<div id="errorMsg"></div>
-
-</div>
-</div>
+<body class="bg">
 
 <!-- INTRO -->
-<div id="intro" class="floral">
-
+<div id="intro">
 <div class="flip-wrap">
 <div class="flip-card" id="flipCard" onclick="openInvite()">
 
@@ -455,13 +379,12 @@ animation:fall linear forwards;
 
 </div>
 </div>
-
 </div>
 
 <!-- SITE -->
 <div id="site">
 
-<div class="control-wrap">
+<div class="controls">
 <button class="control-btn" id="musicBtn" onclick="toggleMusic()">🔊 Music On</button>
 </div>
 
@@ -472,18 +395,15 @@ animation:fall linear forwards;
 <header>
 <div class="names">
 <h1>Mohan</h1>
-<div class="heart">Weds</div>
+<div class="heart">❤️</div>
 <h1>Samiksha</h1>
 
-<p class="subtitle">
-<span id="welcomeText"></span>
-</p>
+<p class="subtitle">With the blessings of our families</p>
 
 <div class="story">
 <p id="typingText"></p>
 <p style="margin-top:10px;font-weight:600;color:var(--gold-dark)">“शुभ मंगल सावधान”</p>
 </div>
-
 </div>
 </header>
 
@@ -494,6 +414,7 @@ animation:fall linear forwards;
 
 <section class="card">
 <h2 class="section-title">Countdown ⏳</h2>
+
 <div class="countdown">
 <div class="box"><span id="days">0</span>Days</div>
 <div class="box"><span id="hours">0</span>Hours</div>
@@ -503,39 +424,45 @@ animation:fall linear forwards;
 </section>
 
 <section class="card">
-<h2 class="section-title">Wedding Events 🎉</h2>
+<h2 class="section-title">Wedding Day Journey ✨</h2>
 
-<div class="events">
+<div class="img-timeline">
 
-<div class="event">
+<div class="journey-item">
+<div class="journey-time">10:00 AM</div>
 <img src="https://images.unsplash.com/photo-1700765277969-554a3666eaac?q=80&w=1470">
 <h3>💍 Engagement</h3>
-<p>10:00 AM</p>
+<p>Celebrating the beginning of forever.</p>
 </div>
 
-<div class="event">
+<div class="journey-item">
+<div class="journey-time">11:00 AM</div>
 <img src="https://plus.unsplash.com/premium_photo-1682092044797-8b893042b2d2?q=80&w=1470">
 <h3>🌼 Haldi</h3>
-<p>11:00 AM</p>
+<p>Colors, laughter and joyful blessings.</p>
 </div>
 
-<div class="event">
+<div class="journey-item">
+<div class="journey-time">1:00 PM – 4:00 PM</div>
 <img src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=1470">
 <h3>🍽️ Bhojan</h3>
-<p>1:00 PM – 4:00 PM</p>
+<p>Traditional feast with love and warmth.</p>
 </div>
 
-<div class="event">
+<div class="journey-item">
+<div class="journey-time">2:31 PM</div>
 <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1470">
-<h3>🔥 Wedding</h3>
-<p><strong>Muhurat: 2:31 PM</strong></p>
+<h3>🔥 Wedding Muhurat</h3>
+<p>The sacred moment we begin our new journey.</p>
 </div>
+
 
 </div>
 </section>
 
 <section class="card">
 <h2 class="section-title">Venue 📍</h2>
+
 <p><strong>Hotel Amrai 69</strong></p>
 <p>Saswad - Bopdev - Pune Rd, Kondhwa, Bhivri, Maharashtra 412301</p>
 
@@ -553,141 +480,49 @@ View on Maps
 </section>
 
 <section class="card">
-<h2 class="section-title">RSVP 💌</h2>
-
-<a class="btn" target="_blank"
-href="https://wa.me/919767933883?text=I will attend your wedding">
-Confirm on WhatsApp
-</a>
+<h2 class="section-title">Bless Us With Your Presence 💌</h2>
+<button class="btn" onclick="openRSVP()">RSVP Now</button>
 </section>
 
 <footer>
-Made by Mohan
+Made with ❤️ by Mohan & Samiksha
 </footer>
 
 </div>
 
+<!-- RSVP MODAL -->
+<div id="rsvpModal">
+<div class="modal-box">
+
+<h2>Bless Us With Your Presence 💌</h2>
+
+<input id="guestName" placeholder="Your Name">
+<input id="guestPhone" maxlength="10" placeholder="Mobile Number">
+
+<select id="guestResponse">
+<option value="">Select Response</option>
+<option>Yes</option>
+<option>No</option>
+<option>Maybe</option>
+</select>
+
+<button class="btn" onclick="submitRSVP()">Submit</button>
+<button class="btn" style="background:#999" onclick="closeRSVP()">Close</button>
+
+<div id="rsvpMsg"></div>
+
+</div>
+</div>
+
 <script>
 const API_URL="https://script.google.com/macros/s/AKfycbxBK7El1oOM5z4iTXODUMa_fH0wLps33BroXyvE8tSHgulqVZJbqmPo5ud41vcN6HLI/exec";
-const INVITE_CODE="MS-07-05-2026";
 
-let guestName="";
 let musicOn=true;
 
-/* ---------- HELPERS ---------- */
-
-function err(msg){
-document.getElementById("errorMsg").innerText=msg;
-}
-
-function clearErr(){
-err("");
-}
-
-function showRegister(){
-document.getElementById("loginBox").style.display="none";
-document.getElementById("registerBox").style.display="block";
-clearErr();
-}
-
-function showLogin(){
-document.getElementById("registerBox").style.display="none";
-document.getElementById("loginBox").style.display="block";
-clearErr();
-}
-
-/* ---------- LOGIN ---------- */
-
-async function loginGuest(){
-document.activeElement.blur();
-err("");
-clearErr();
-
-const phone=document.getElementById("loginPhone").value.trim();
-
-if(!/^[6-9][0-9]{9}$/.test(phone)){
-err("Enter valid 10-digit mobile number");
-return;
-}
-
-try{
-const res=await fetch(`${API_URL}?action=login&phone=${phone}`);
-const data=await res.json();
-
-if(data.success){
-guestName=data.name || "";
-localStorage.setItem("guestName",guestName);
-localStorage.setItem("inviteAccess","yes");
-showIntro();
-}else{
-err("Number not registered. Please register first.");
-}
-}catch(e){
-err("Unable to connect. Please try again.");
-}
-}
-
-/* ---------- REGISTER ---------- */
-
-async function registerGuest(){
-document.activeElement.blur();
-err("");
-clearErr();
-
-const name=document.getElementById("regName").value.trim();
-const phone=document.getElementById("regPhone").value.trim();
-const code=document.getElementById("regCode").value.trim();
-
-if(name.length<2){
-err("Enter full name");
-return;
-}
-
-if(!/^[6-9][0-9]{9}$/.test(phone)){
-err("Enter valid 10-digit mobile number");
-return;
-}
-
-if(code!==INVITE_CODE){
-err("Invalid invite code");
-return;
-}
-
-try{
-
-const url=`${API_URL}?action=register&name=${encodeURIComponent(name)}&phone=${phone}&code=${encodeURIComponent(code)}`;
-
-const res=await fetch(url);
-const data=await res.json();
-
-if(data.success){
-guestName=name;
-localStorage.setItem("guestName",guestName);
-localStorage.setItem("inviteAccess","yes");
-showIntro();
-}else if(data.message==="Mobile already registered"){
-err("Already registered. Please login.");
-}else{
-err(data.message || "Unable to register");
-}
-
-}catch(e){
-err("Unable to connect. Please try again.");
-}
-
-}
-
-/* ---------- INTRO ---------- */
-
-function showIntro(){
-document.getElementById("gate").style.display="none";
-document.getElementById("intro").style.display="flex";
-}
+/* open */
 
 function openInvite(){
-
 document.getElementById("flipCard").classList.add("open");
-
 playMusic();
 startPetals();
 
@@ -695,29 +530,20 @@ setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 document.getElementById("site").style.display="block";
 document.body.style.overflow="auto";
-
-if(guestName){
-document.getElementById("welcomeText").innerText=
-`Welcome ${guestName} & Family`;
-}
-
 startTyping();
-
 },1000);
-
 }
 
-/* ---------- MUSIC ---------- */
+/* music */
 
 function playMusic(){
 const m=document.getElementById("bgMusic");
 m.play().catch(()=>{});
 musicOn=true;
-updateMusicBtn();
+updateMusic();
 }
 
 function toggleMusic(){
-
 const m=document.getElementById("bgMusic");
 
 if(m.paused){
@@ -727,98 +553,50 @@ musicOn=true;
 m.pause();
 musicOn=false;
 }
-
-updateMusicBtn();
+updateMusic();
 }
 
-function updateMusicBtn(){
-
-const btn=document.getElementById("musicBtn");
-
-if(musicOn){
-btn.innerText="🔊 Music On";
-}else{
-btn.innerText="🔇 Music Off";
+function updateMusic(){
+document.getElementById("musicBtn").innerText =
+musicOn ? "🔊 Music On" : "🔇 Music Off";
 }
 
-}
-
-/* ---------- LOGOUT ---------- */
-
-function logoutGuest(){
-localStorage.clear();
-location.reload();
-}
-
-/* ---------- PETALS ---------- */
+/* petals */
 
 function startPetals(){
-
-for(let i=0;i<28;i++){
-
+for(let i=0;i<26;i++){
 const p=document.createElement("div");
 p.className="petal";
 p.innerHTML="🌸";
-
 p.style.left=Math.random()*100+"vw";
 p.style.fontSize=(14+Math.random()*10)+"px";
 p.style.animationDuration=(5+Math.random()*5)+"s";
-
 document.body.appendChild(p);
-
 setTimeout(()=>p.remove(),10000);
-
 }
 }
 
-/* ---------- STORY ---------- */
+/* story */
 
 const story="Sometimes, the most beautiful journeys begin with a simple introduction. What started as an arranged meeting turned into a bond filled with understanding, respect, and growing affection.";
-
 let si=0;
 
 function startTyping(){
-
 const el=document.getElementById("typingText");
-
 function type(){
 if(si<story.length){
 el.innerHTML+=story.charAt(si++);
 setTimeout(type,25);
 }
 }
-
 type();
 }
 
-/* ---------- AUTO LOGIN ---------- */
-
-window.onload=function(){
-
-if(localStorage.getItem("inviteAccess")==="yes"){
-
-guestName=localStorage.getItem("guestName") || "";
-
-document.getElementById("gate").style.display="none";
-document.getElementById("site").style.display="block";
-document.body.style.overflow="auto";
-
-if(guestName){
-document.getElementById("welcomeText").innerText=
-`Welcome ${guestName} & Family`;
-}
-
-playMusic();
-startTyping();
-}
-};
-
-/* ---------- COUNTDOWN ---------- */
+/* countdown */
 
 const weddingDate=new Date("May 7, 2026 14:31:00").getTime();
 
 setInterval(()=>{
-
 const now=new Date().getTime();
 const d=weddingDate-now;
 
@@ -826,20 +604,78 @@ document.getElementById("days").innerText=Math.max(0,Math.floor(d/(1000*60*60*24
 document.getElementById("hours").innerText=Math.max(0,Math.floor((d%(1000*60*60*24))/(1000*60*60)));
 document.getElementById("minutes").innerText=Math.max(0,Math.floor((d%(1000*60*60))/(1000*60)));
 document.getElementById("seconds").innerText=Math.max(0,Math.floor((d%(1000*60))/1000));
-
 },1000);
 
-/* ---------- REVEAL ---------- */
+/* reveal cards */
 
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add("show");
-}
+if(e.isIntersecting)e.target.classList.add("show");
 });
 });
 
 document.querySelectorAll(".card").forEach(el=>observer.observe(el));
+
+/* RSVP */
+
+function openRSVP(){
+document.getElementById("rsvpModal").style.display="flex";
+}
+
+function closeRSVP(){
+document.getElementById("rsvpModal").style.display="none";
+document.getElementById("rsvpMsg").innerText="";
+}
+
+async function submitRSVP(){
+
+document.activeElement.blur();
+
+const name=document.getElementById("guestName").value.trim();
+const phone=document.getElementById("guestPhone").value.trim();
+const response=document.getElementById("guestResponse").value;
+
+const msg=document.getElementById("rsvpMsg");
+msg.style.color="#d9534f";
+msg.innerText="";
+
+if(name.length<2){
+msg.innerText="Enter valid name";
+return;
+}
+
+if(!/^[6-9][0-9]{9}$/.test(phone)){
+msg.innerText="Enter valid mobile number";
+return;
+}
+
+if(!response){
+msg.innerText="Select response";
+return;
+}
+
+try{
+const url=`${API_URL}?action=rsvp&name=${encodeURIComponent(name)}&phone=${phone}&response=${encodeURIComponent(response)}`;
+
+const res=await fetch(url);
+const data=await res.json();
+
+if(data.success){
+msg.style.color="green";
+msg.innerText="Thank you for your response ❤️";
+
+setTimeout(()=>{
+closeRSVP();
+},1500);
+
+}else{
+msg.innerText=data.message || "Unable to submit";
+}
+
+}catch(e){
+msg.innerText="Unable to connect";
+}
+}
 </script>
 
 </body>
