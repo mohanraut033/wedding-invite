@@ -496,10 +496,15 @@ Made with ❤️ by Mohan & Samiksha
 
 <h2>Bless Us With Your Presence 💌</h2>
 
-<input id="guestName" placeholder="Your Name">
-<input id="guestPhone" maxlength="10" placeholder="Mobile Number">
+<input id="guestName" placeholder="Your Name" autocomplete="off">
 
-<select id="guestResponse">
+<input id="guestPhone"
+maxlength="10"
+placeholder="Mobile Number"
+inputmode="numeric"
+autocomplete="off">
+
+<select id="guestResponse" autocomplete="off">
 <option value="">Select Response</option>
 <option>Yes</option>
 <option>No</option>
@@ -619,7 +624,18 @@ document.querySelectorAll(".card").forEach(el=>observer.observe(el));
 /* RSVP */
 
 function openRSVP(){
+
+document.getElementById("guestName").value="";
+document.getElementById("guestPhone").value="";
+document.getElementById("guestResponse").value="";
+document.getElementById("rsvpMsg").innerText="";
+
 document.getElementById("rsvpModal").style.display="flex";
+
+setTimeout(()=>{
+document.getElementById("guestName").focus();
+},150);
+
 }
 
 function closeRSVP(){
@@ -629,52 +645,85 @@ document.getElementById("rsvpMsg").innerText="";
 
 async function submitRSVP(){
 
+const btn = event.target;
+
+btn.disabled = true;
+btn.innerText = "Submitting...";
+
 document.activeElement.blur();
 
-const name=document.getElementById("guestName").value.trim();
-const phone=document.getElementById("guestPhone").value.trim();
-const response=document.getElementById("guestResponse").value;
+const name =
+document.getElementById("guestName").value.trim();
 
-const msg=document.getElementById("rsvpMsg");
+const phone =
+document.getElementById("guestPhone").value.trim();
+
+const response =
+document.getElementById("guestResponse").value;
+
+const msg =
+document.getElementById("rsvpMsg");
+
 msg.style.color="#d9534f";
 msg.innerText="";
 
-if(name.length<2){
+if(name.length < 2){
 msg.innerText="Enter valid name";
+resetBtn();
 return;
 }
 
 if(!/^[6-9][0-9]{9}$/.test(phone)){
 msg.innerText="Enter valid mobile number";
+resetBtn();
 return;
 }
 
 if(!response){
 msg.innerText="Select response";
+resetBtn();
 return;
 }
 
 try{
-const url=`${API_URL}?action=rsvp&name=${encodeURIComponent(name)}&phone=${phone}&response=${encodeURIComponent(response)}`;
 
-const res=await fetch(url);
-const data=await res.json();
+const url =
+`${API_URL}?action=rsvp&name=${encodeURIComponent(name)}&phone=${phone}&response=${encodeURIComponent(response)}`;
+
+const res = await fetch(url);
+const data = await res.json();
 
 if(data.success){
+
 msg.style.color="green";
 msg.innerText="Thank you for your response ❤️";
 
 setTimeout(()=>{
 closeRSVP();
+resetBtn();
 },1500);
 
 }else{
-msg.innerText=data.message || "Unable to submit";
+
+msg.innerText =
+data.message || "Unable to submit";
+
+resetBtn();
+
 }
 
 }catch(e){
+
 msg.innerText="Unable to connect";
+resetBtn();
+
 }
+
+function resetBtn(){
+btn.disabled=false;
+btn.innerText="Submit";
+}
+
 }
 </script>
 
